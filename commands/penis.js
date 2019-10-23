@@ -14,15 +14,15 @@ module.exports = {
             var taggedUser = message.mentions.users.first();
         }
 
-        if (!dataFile["Penis_Lengths"][taggedUser.id]) {
+        if (!dataFile[config.serverID]["Penis_Lengths"][taggedUser.id]) {
             var penisMeassurements = ['Inches', 'Foot', 'cm', 'mm'];  
             var penisMeassure = penisMeassurements[Math.floor(Math.random() * penisMeassurements.length)];
             var penisNumber = Math.random() * (10 - 0) + 0;
             var penisSize = Math.round(penisNumber);
 
-            if (!dataFile["Penis_Lengths"]) dataFile["Penis_Lengths"] = {};
+            if (!dataFile[config.serverID]["Penis_Lengths"]) dataFile[config.serverID]["Penis_Lengths"] = {};
 
-            dataFile["Penis_Lengths"][taggedUser.id] = {
+            dataFile[config.serverID]["Penis_Lengths"][taggedUser.id] = {
                 Length: penisSize,
                 Measure: penisMeassure
             }
@@ -32,8 +32,8 @@ module.exports = {
             });
 
         }else{
-            var penisSize = dataFile["Penis_Lengths"][taggedUser.id].Length;
-            var penisMeassure = dataFile["Penis_Lengths"][taggedUser.id].Measure;
+            var penisSize = dataFile[config.serverID]["Penis_Lengths"][taggedUser.id].Length;
+            var penisMeassure = dataFile[config.serverID]["Penis_Lengths"][taggedUser.id].Measure;
         }
 
         message.channel.send(`${taggedUser.username}'s penis: ` + penisSize + ` ` + penisMeassure);

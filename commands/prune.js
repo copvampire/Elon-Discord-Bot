@@ -8,7 +8,7 @@ module.exports = {
         if (message.member.roles.has(Role.id)) {
             if (isNaN(amount)) {
                 return message.reply('That doesn\'t seem to be a valid number!');
-            } else if (amount < 1 || amount > 99) {
+            } else if (amount <= 1 || amount >= 99) {
                 return message.reply('You need to input a number between 1 and 99.');
             }
 
