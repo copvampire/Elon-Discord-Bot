@@ -78,7 +78,7 @@ client.on('raw', async event => {
     const eventName = event.t;
 
     if(eventName === 'MESSAGE_REACTION_ADD'){
-        if(event.d.message_id === '636701061473632266'){
+        if(event.d.message_id === '636746772802437132'){
             var reactionChannel = client.channels.get(event.d.channel_id);
             if(reactionChannel.messages.has(event.d.message_id))
                 return;
@@ -93,7 +93,7 @@ client.on('raw', async event => {
             }
         }
     }else if(eventName === 'MESSAGE_REACTION_REMOVE'){
-        if(event.d.message_id === '636701061473632266'){
+        if(event.d.message_id === '636746772802437132'){
             var reactionChannel = client.channels.get(event.d.channel_id);
             if(reactionChannel.messages.has(event.d.message_id)) 
                 return;
