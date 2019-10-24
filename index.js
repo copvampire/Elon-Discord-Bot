@@ -127,6 +127,8 @@ client.on('messageReactionAdd', (reaction, user) => {
     //636699301048745996 - Delorean_Fanboy
     //636699301656920064 - Dodge_Fanboy
     //636729384153120768 - Audi_Fanboy
+    
+    //636729384153120768 - Audi_Fanboy
 
 
     switch(reaction.emoji.id || reaction.emoji.name) {
@@ -160,13 +162,24 @@ client.on('messageReactionAdd', (reaction, user) => {
         case "636729384153120768":
             var Role = guild.roles.find(role => role.name === "Audi_Fanboy");
           break;
+        case "636761249174126592":
+            var Role = guild.roles.find(role => role.name === "Not_Canadian");
+          break;
+        case "636761202978193429":
+            var Role = guild.roles.find(role => role.name === "Brexit");
+          break;
+        case "636761258892460052":
+            var Role = guild.roles.find(role => role.name === "Not_American");
+          break;
         default:
           
-            // client.channels.find("name", "bot-test").send(`${user.username} reacted with ` + reaction.emoji.name +` ` + reaction.emoji.id +` ` + reaction.emoji +` reaction.`);
+            client.channels.find("name", "bot-test").send(`${user.username} reacted with ` + reaction.emoji.name +` ` + reaction.emoji.id +` ` + reaction.emoji +` ` + reaction.emoji.require_colons +` reaction.`);
         break;
       }
-    var member = reaction.message.guild.members.find(member => member.id === user.id);
-    member.addRole(Role).catch(console.error);
+      if(Role){
+        var member = reaction.message.guild.members.find(member => member.id === user.id);
+        member.addRole(Role).catch(console.error);
+      }
 });
 
 client.on('messageReactionRemove', (reaction, user) => {
@@ -217,12 +230,23 @@ client.on('messageReactionRemove', (reaction, user) => {
         case "636729384153120768":
             var Role = guild.roles.find(role => role.name === "Audi_Fanboy");
           break;
+        case "636761249174126592":
+            var Role = guild.roles.find(role => role.name === "Not_Canadian");
+          break;
+        case "636761202978193429":
+            var Role = guild.roles.find(role => role.name === "Brexit");
+          break;
+        case "636761258892460052":
+            var Role = guild.roles.find(role => role.name === "Not_American");
+          break;
         default:
           
         break;
       }
-      var member = reaction.message.guild.members.find(member => member.id === user.id);
-      member.removeRole(Role).catch(console.error);
+      if(Role){
+        var member = reaction.message.guild.members.find(member => member.id === user.id);
+        member.removeRole(Role).catch(console.error);
+      }
 });
 
 client.on('message', message => {
