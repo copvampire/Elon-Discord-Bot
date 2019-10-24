@@ -38,6 +38,18 @@ module.exports = {
                 var CookieTreat = "jammie dodger";
                 var CookieMessage = `Giving a jammie dodger to ${taggedUser.username}`;
                 var CookieImage = "https://static.independent.co.uk/s3fs-public/indy100/ZyeBbnAGhlZ/25426-1vf2hul.jpg";
+            }else if(taggedUser.id == "227853483145953281"){
+                var CookieTreat = "maple syrup cookie";
+                var CookieMessage = `Giving a maple syrup cookie to ${taggedUser.username}`;
+                var CookieImage = "https://www.thegreatcanadiangiftcompany.com/assets/images/maplecreamcookiesbulkfour.jpg";
+            }else if(taggedUser.id == "107629325699792896"){
+                var CookieTreat = "chocolate chip oatmeal buiscut";
+                var CookieMessage = `Giving a chocolate chip oatmeal buiscut to ${taggedUser.username}`;
+                var CookieImage = "https://cdn.sallysbakingaddiction.com/wp-content/uploads/2018/05/thick-peanut-butter-oatmeal-chocolate-chip-cookies-6.jpg";
+            }else if(taggedUser.id == "215490271415107584"){
+                var CookieTreat = "stroopwafel";
+                var CookieMessage = `Giving a stroopwafel to ${taggedUser.username}`;
+                var CookieImage = "https://cdn.shopify.com/s/files/1/0100/5392/products/StroopiesCircle2_900_d4372e47-6e31-410d-a2c8-cae8d9b01b9d_675x400.progressive.jpg?v=1569895484";
             }else if(taggedUser.id == "338824439842078720"){
                 var CookieTreat = "data";
                 var CookieMessage = `I CANT EAT FOOD, ONLY DATA`;

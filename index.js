@@ -1,9 +1,10 @@
+//https://discordapp.com/oauth2/authorize?client_id=338824439842078720&scope=bot&permissions=2146958847
+
 // require the discord.js module
 const Discord = require('discord.js');
 const fs = require('fs');
 const config = require('./config.json');
-const datafile = require('./data.json');
-const chalk = require('chalk');
+const dataFile = require('./data.json');
 
 // create a new discord client
 const client = new Discord.Client();
@@ -19,6 +20,12 @@ for (const file of commandFlies) {
     client.commands.set(command.name, command);
 }
 
+if (!dataFile[config.serverID]) dataFile[config.serverID] = {};
+
+fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
+    if (err) throw err;
+});
+
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -28,10 +35,6 @@ function getRandomColor() {
     return color;
 }
 
-// when the client is ready, run this code
-// this event will trigger whenever your bot:
-// - finishes logging in
-// - reconnects after disconnecting
 client.on('ready', () => {
     console.log('Ready!');
     client.user.setActivity(config.game);
@@ -71,28 +74,155 @@ const events = {
 };
 
 client.on('raw', async event => {
-	if (!events.hasOwnProperty(event.t)) return;
 
-	const { d: data } = event;
-	const user = client.users.get(data.user_id);
-	const channel = client.channels.get(data.channel_id) || await user.createDM();
+    const eventName = event.t;
 
-	if (channel.messages.has(data.message_id)) return;
+    if(eventName === 'MESSAGE_REACTION_ADD'){
+        if(event.d.message_id === '636701061473632266'){
+            var reactionChannel = client.channels.get(event.d.channel_id);
+            if(reactionChannel.messages.has(event.d.message_id))
+                return;
+            else{
+                reactionChannel.fetchMessage(event.d.message_id)
+                .then(msg => {
+                    var msgReaction = msg.reactions.get(event.d.emoji.name + ":" + event.d.emoji.id);
+                    var user = client.users.get(event.d.user_id);
+                    client.emit('messageReactionAdd', msgReaction, user);
+                })
+                .catch(err => console.log(err));
+            }
+        }
+    }else if(eventName === 'MESSAGE_REACTION_REMOVE'){
+        if(event.d.message_id === '636701061473632266'){
+            var reactionChannel = client.channels.get(event.d.channel_id);
+            if(reactionChannel.messages.has(event.d.message_id)) 
+                return;
+                else{
+                    reactionChannel.fetchMessage(event.d.message_id)
+                    .then(msg => {
+                        var msgReaction = msg.reactions.get(event.d.emoji.name + ":" + event.d.emoji.id);
+                        var user = client.users.get(event.d.user_id);
+                        client.emit('messageReactionRemove', msgReaction, user);
+                    })
+                    .catch(err => console.log(err));
+                }
 
-	const message = await channel.messages.fetch(data.message_id);
-	const emojiKey = data.emoji.id || data.emoji.name;
-	const reaction = message.reactions.get(emojiKey) || message.reactions.add(data);
 
-	client.emit(events[event.t], reaction, user);
-	if (message.reactions.size === 1) message.reactions.delete(emojiKey);
+        }
+    }
 });
 
 client.on('messageReactionAdd', (reaction, user) => {
-	console.log(`${user.username} reacted with "${reaction.emoji.name}".`);
+    var guild = client.guilds.get(config.serverID);
+
+    //Emoji IDs - Role
+    //
+    //636699302764216340 - Mclaren_Fanboy
+    //636699300918984711 - WMotors_Fanboy
+    //636699301052940290 - Mustang_Fanboy
+    //636699301321637907 - Tesla_Fanboy
+    //636699301397004288 - Fiat_Panda_Fanboy
+    //636699301292015616 - Pagani_Fanboy
+    //636699301023842354 - Prius_Driver
+    //636699301048745996 - Delorean_Fanboy
+    //636699301656920064 - Dodge_Fanboy
+    //636729384153120768 - Audi_Fanboy
+
+
+    switch(reaction.emoji.id || reaction.emoji.name) {
+        case "636699302764216340":
+            var Role = guild.roles.find(role => role.name === "Mclaren_Fanboy");
+          break;
+        case "636699300918984711":
+            var Role = guild.roles.find(role => role.name === "WMotors_Fanboy");
+          break;
+        case "636699301052940290":
+            var Role = guild.roles.find(role => role.name === "Mustang_Fanboy");
+          break;
+        case "636699301321637907":
+            var Role = guild.roles.find(role => role.name === "Tesla_Fanboy");
+          break;
+        case "636699301397004288":
+            var Role = guild.roles.find(role => role.name === "Fiat_Panda_Fanboy");
+          break;
+        case "636699301292015616":
+            var Role = guild.roles.find(role => role.name === "Pagani_Fanboy");
+          break;
+        case "636699301023842354":
+            var Role = guild.roles.find(role => role.name === "Prius_Driver");
+          break;
+        case "636699301048745996":
+            var Role = guild.roles.find(role => role.name === "Delorean_Fanboy");
+          break;
+        case "636699301656920064":
+            var Role = guild.roles.find(role => role.name === "Dodge_Fanboy");
+          break;
+        case "636729384153120768":
+            var Role = guild.roles.find(role => role.name === "Audi_Fanboy");
+          break;
+        default:
+          
+            // client.channels.find("name", "bot-test").send(`${user.username} reacted with ` + reaction.emoji.name +` ` + reaction.emoji.id +` ` + reaction.emoji +` reaction.`);
+        break;
+      }
+    var member = reaction.message.guild.members.find(member => member.id === user.id);
+    member.addRole(Role).catch(console.error);
 });
 
 client.on('messageReactionRemove', (reaction, user) => {
-	console.log(`${user.username} removed their "${reaction.emoji.name}" reaction.`);
+    var guild = client.guilds.get(config.serverID);
+
+    //Emoji IDs - Role
+    //
+    //636699302764216340 - Mclaren_Fanboy
+    //636699300918984711 - WMotors_Fanboy
+    //636699301052940290 - Mustang_Fanboy
+    //636699301321637907 - Tesla_Fanboy
+    //636699301397004288 - Fiat_Panda_Fanboy
+    //636699301292015616 - Pagani_Fanboy
+    //636699301023842354 - Prius_Driver
+    //636699301048745996 - Delorean_Fanboy
+    //636699301656920064 - Dodge_Fanboy
+    //636729384153120768 - Audi_Fanboy
+
+
+    switch(reaction.emoji.id || reaction.emoji.name) {
+        case "636699302764216340":
+            var Role = guild.roles.find(role => role.name === "Mclaren_Fanboy");
+          break;
+        case "636699300918984711":
+            var Role = guild.roles.find(role => role.name === "WMotors_Fanboy");
+          break;
+        case "636699301052940290":
+            var Role = guild.roles.find(role => role.name === "Mustang_Fanboy");
+          break;
+        case "636699301321637907":
+            var Role = guild.roles.find(role => role.name === "Tesla_Fanboy");
+          break;
+        case "636699301397004288":
+            var Role = guild.roles.find(role => role.name === "Fiat_Panda_Fanboy");
+          break;
+        case "636699301292015616":
+            var Role = guild.roles.find(role => role.name === "Pagani_Fanboy");
+          break;
+        case "636699301023842354":
+            var Role = guild.roles.find(role => role.name === "Prius_Driver");
+          break;
+        case "636699301048745996":
+            var Role = guild.roles.find(role => role.name === "Delorean_Fanboy");
+          break;
+        case "636699301656920064":
+            var Role = guild.roles.find(role => role.name === "Dodge_Fanboy");
+          break;
+        case "636729384153120768":
+            var Role = guild.roles.find(role => role.name === "Audi_Fanboy");
+          break;
+        default:
+          
+        break;
+      }
+      var member = reaction.message.guild.members.find(member => member.id === user.id);
+      member.removeRole(Role).catch(console.error);
 });
 
 client.on('message', message => {
@@ -143,7 +273,7 @@ client.on('message', message => {
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     }
     try {
-        command.execute(client, config, datafile, message, args);
+        command.execute(client, config, dataFile, message, args);
     }
     catch (error) {
         console.error(error);
