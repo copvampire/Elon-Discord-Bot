@@ -16,6 +16,7 @@ module.exports = {
                 console.log(err);
                 message.channel.send('There was an error trying to prune messages in this channel!');
             });
+            
         }else{
             message.channel.send('You need more permissions to do this command!');
         }

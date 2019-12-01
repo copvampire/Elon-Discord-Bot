@@ -26,8 +26,20 @@ module.exports = {
                 "It's time to slide across an icy puddle of chat on Conversation Street.",
                 "It is now time for us to plant some daffodils of opinion on the roundabout of chat at the end of Conversation Street.",
                 "It is time to ring the doorbell of debate on the house of chat, located on Conversation Street.",
-                "It's time to order some doughnuts of debate from the Chat Café, on Conversation Street."
+                "It's time to order some doughnuts of debate from the Chat Café, on Conversation Street.",
+                "Now it is time to drop the car keys of chat, down the drain of debate, on conversation street.",
+                "It is time to brim the tank of chat from the petrol station of debate, on the corner of conversation street.",
+                "It is time for us to scrump an apple of chat from the orchard of intercourse which is on conversation street.",
+                "It is time for us to splash in some puddles of chat left by the drizzle of debate that falls on conversation street.",
+                "But now its time to hello to the old lady of debate who sits in the bus shelter of chat on conversation street.",
+                "It is time to buy a four pack of chat from the off license of debate on conversation street.",
+                "Now it is time to bite into a cake of debate from the cafe of chat on the corner of conversation street.",
+                "We must move on because now it is time us to score a bag of chat from the dealer of debate on conversation street.",
+                "Now it is time for us to deploy the plastic bag of chat to scoop up some dog eggs of debate from the pavements of conversation street."
                 ];
+
+
+
 
                 var trollMessage = trollMessages[Math.floor(Math.random() * trollMessages.length)];
 

@@ -13,7 +13,8 @@ module.exports = {
                 // this will return a `User` object, just like `message.author`
                 const taggedUser = message.mentions.users.first();
 
-                message.channel.send(`You wanted to kick: ${taggedUser.username}`);
+                message.channel.send(`${taggedUser.username} got yeeted out faster than S5-HVS1 did`);
+                message.guild.member(taggedUser).kick();
             }
         }else{
             message.channel.send('You need more permissions to do this command!');

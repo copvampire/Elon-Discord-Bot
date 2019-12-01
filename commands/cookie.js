@@ -50,6 +50,10 @@ module.exports = {
                 var CookieTreat = "stroopwafel";
                 var CookieMessage = `Giving a stroopwafel to ${taggedUser.username}`;
                 var CookieImage = "https://cdn.shopify.com/s/files/1/0100/5392/products/StroopiesCircle2_900_d4372e47-6e31-410d-a2c8-cae8d9b01b9d_675x400.progressive.jpg?v=1569895484";
+            }else if(taggedUser.id == "210222394458112000"){
+                var CookieTreat = "potato";
+                var CookieMessage = `Giving a potato to ${taggedUser.username}`;
+                var CookieImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/BakedPotatoWithButter.jpg/1200px-BakedPotatoWithButter.jpg";
             }else if(taggedUser.id == "338824439842078720"){
                 var CookieTreat = "data";
                 var CookieMessage = `I CANT EAT FOOD, ONLY DATA`;
