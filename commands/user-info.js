@@ -1,18 +1,10 @@
 const Discord = require('discord.js');
+const Library = require('../Lib.js');
 module.exports = {
     name: 'user-info',
     description: 'user information',
     execute(client, config, dataFile, message, args) {
-
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
+        
         if (!message.mentions.users.size) {
             var taggedUser = message.author;
         }
@@ -35,7 +27,7 @@ module.exports = {
         }
 
         var infoEmbed = new Discord.RichEmbed()
-        .setColor(getRandomColor())
+        .setColor(Library.getRandomColor())
         .setTitle(`${taggedUser.username} stats`)
         .addField('Cookies:', `Given: ` + cookieAmountGiven + `\n Recieved: ` + cookieAmountRecieved, true)
         .addField('Penis:', penisSize + ` ` + penisMeassure, true)

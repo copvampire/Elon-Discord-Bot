@@ -1,9 +1,9 @@
+const fs = require('fs');
 module.exports = {
     name: 'penis',
     cooldown: 5,
     description: 'Get the size of your penis!',
     execute(client, config, dataFile, message, args) {
-        const fs = require('fs');
 
         if (!message.mentions.users.size) {
             var taggedUser = message.author;

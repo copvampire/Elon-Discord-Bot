@@ -1,20 +1,12 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+const Library = require('../Lib.js');
 module.exports = {
     name: 'cookie',
     cooldown: 5,
     description: 'Get a cookie!',
     execute(client, config, dataFile, message, args) {
-
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
+        
         if (!message.mentions.users.size) {
             return message.reply('You can not send a cookie to yourself!');
         }else if(message.mentions.users.first().id == message.author.id){
@@ -65,7 +57,7 @@ module.exports = {
             }
             
             var cookieEmbed = new Discord.RichEmbed()
-            .setColor(getRandomColor())
+            .setColor(Library.getRandomColor())
             .setTitle(CookieTreat + '!')
             .setDescription(CookieMessage)
             .setThumbnail(CookieImage)
@@ -76,7 +68,7 @@ module.exports = {
             var CookieImage = "https://www.fs.fed.us/sites/default/files/media_wysiwyg/no-cookie-sign.jpg";
             
             var cookieEmbed = new Discord.RichEmbed()
-            .setColor(getRandomColor())
+            .setColor(Library.getRandomColor())
             .setTitle('cookie!')
             .setDescription(CookieMessage)
             .setThumbnail(CookieImage)
