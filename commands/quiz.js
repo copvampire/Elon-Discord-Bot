@@ -5,6 +5,7 @@ module.exports = {
     cooldown: 30,
     description: 'Answer a tech question',
     execute(client, config, dataFile, message, args) {
+        var Role = message.guild.roles.find(Role => Role.name === config.modrank);
         var obj = dataFile["Quiz"];
 
         if(obj["Settings"].Active == "true"){
@@ -79,16 +80,19 @@ module.exports = {
                         message.channel.fetchMessage(dataFile["Quiz"]["Settings"].Message_ID).then(messagea => {
                             // messagea.delete();
                             messagea.edit(Library.getEndQuizMessage());
-                            return;
-                        })
 
-                        dataFile["Quiz"]["Settings"] = {
-                            Active: "false"
-                        }
-                
-                        fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
-                            if (err) throw err;
-                        });
+                            dataFile["Quiz"]["Settings"] = {
+                                Runs: dataFile["Quiz"]["Settings"].Runs,
+                                Active: "false"
+                            }
+                    
+                            fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
+                                if (err) throw err;
+                            });
+                        
+                        return;
+                        
+                    })
 
                     }else{
                         message.channel.send('You need more permissions to do this command!');

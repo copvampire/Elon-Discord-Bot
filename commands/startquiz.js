@@ -8,32 +8,62 @@ module.exports = {
         var Role = message.guild.roles.find(Role => Role.name === config.modrank);
         var obj = dataFile["Quiz"];
 
+
         if(obj["Settings"].Active == "false"){
             
             if (message.member.roles.has(Role.id)) {
                 var size = 0;
+                var selected_Question = "false";
 
                 for (key in obj["Questions"]) {
                     if (obj["Questions"].hasOwnProperty(key)) size++;
                 }
 
                 // var SelectedQuestion = size * Math.random() << 0;
-                var SelectedQuestion = Library.getRandomNumber(parseInt(size));
+                // var SelectedQuestion = Library.getRandomNumber(parseInt(size));
                 
                 // message.channel.send(SelectedQuestion + "=-=" + parseInt(size) + "=-=" + size);
-                
-                var Question_String = obj["Questions"][SelectedQuestion].Question;
-                var Question_Length = Question_String.length;
 
+
+                while (selected_Question == "false") {
+                    var SelectedQuestion = Library.getRandomNumber(parseInt(size));
+                    
+                    if(obj["Questions"][SelectedQuestion].Ran <= Math.floor(obj["Settings"].Runs / size)){
+
+                        var Question_String = obj["Questions"][SelectedQuestion].Question;
+                        var NewCount = obj["Questions"][SelectedQuestion].Ran + 1;
+
+                        dataFile["Quiz"]["Questions"][SelectedQuestion] = {
+                            Question: obj["Questions"][SelectedQuestion].Question,
+                            Options: {
+                                A: obj["Questions"][SelectedQuestion]["Options"].A,
+                                B: obj["Questions"][SelectedQuestion]["Options"].B,
+                                C: obj["Questions"][SelectedQuestion]["Options"].C,
+                                D: obj["Questions"][SelectedQuestion]["Options"].D
+                            },
+                            Answer: obj["Questions"][SelectedQuestion].Answer,
+                            Ran: NewCount
+                        }
+
+                        fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
+                            if (err) throw err;
+                        });
+
+                        var selected_Question = "true";
+                    }
+                }
+
+                var Question_Length = Question_String.length;
                 var Question_Fitted = Math.floor(Question_Length / 10);
 
-                var Question_Added = Question_Fitted * 10000;
+                var Question_Added = Question_Fitted * 1000;
 
                 message.channel.sendEmbed(Library.getStartQuizMessage(obj["Questions"][SelectedQuestion], 30 + Question_Fitted))
                 .then(sent => {
 
                     dataFile["Quiz"]["Settings"] = {
                         Active: "true",
+                        Runs: dataFile["Quiz"]["Settings"].Runs,
                         SelectedQuestion: SelectedQuestion,
                         Message_ID: sent.id
                     }
@@ -53,9 +83,10 @@ module.exports = {
                         messagea.edit(Library.getEndQuizMessage());
                         return;
                     })
+                    var NewQuizCount = dataFile["Quiz"]["Settings"].Runs + 1;
                     
-
                     dataFile["Quiz"]["Settings"] = {
+                        Runs: NewQuizCount,
                         Active: "false"
                     }
         

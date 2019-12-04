@@ -225,10 +225,11 @@
     },
     "Quiz": {
         "Settings": {
+            "Runs": 1,
             "Active": "false"
         },
         "Questions": {
-            "0": {
+            "1": {
                 "Question": "How many bits are in a nibble?",
                 "Options": {
                     "A": "2",
@@ -236,9 +237,10 @@
                     "C": "6",
                     "D": "14"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
-            "1": {
+            "2": {
                 "Question": "What is 1|2+3?",
                 "Options": {
                     "A": "2",
@@ -246,17 +248,8 @@
                     "C": "6",
                     "D": "null"
                 },
-                "Answer": "C"
-            },
-            "2": {
-                "Question": "What is not a visibility level for classes in C++?",
-                "Options": {
-                    "A": "public",
-                    "B": "hidden",
-                    "C": "protected",
-                    "D": "private"
-                },
-                "Answer": "B"
+                "Answer": "C",
+                "Ran": 0
             },
             "3": {
                 "Question": "In 6502 assembler, how many general purpose registers are there?",
@@ -266,7 +259,8 @@
                     "C": "4",
                     "D": "18"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "4": {
                 "Question": "6502 assembler language was used in which game?",
@@ -276,7 +270,8 @@
                     "C": "Tomb Raider",
                     "D": "Halo"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "5": {
                 "Question": "The first programmer was",
@@ -286,7 +281,8 @@
                     "C": "A woman",
                     "D": "Black"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "6": {
                 "Question": "^a?b+cc?[^a]$",
@@ -296,7 +292,8 @@
                     "C": "bbbcf",
                     "D": "bcca"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "7": {
                 "Question": "According to the steam hardware survey of November 2019, what is the percentage of Nvidia cards?",
@@ -306,7 +303,8 @@
                     "C": "71.24%",
                     "D": "74.24%"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "8": {
                 "Question": "According to the steam hardware survey of November 2019, what is the percentage of AMD CPUs?",
@@ -316,7 +314,8 @@
                     "C": "22.5%",
                     "D": "19.5%"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "9": {
                 "Question": "According to the steam hardware survey of November 2019, what is the least amount CPU cores per computer?",
@@ -326,7 +325,8 @@
                     "C": "3",
                     "D": "4"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "10": {
                 "Question": "How many gigabytes are in 1 terabyte?",
@@ -336,7 +336,8 @@
                     "C": "1000",
                     "D": "1024"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "11": {
                 "Question": "Which of these is NOT something you would typically find in a graphics card retail box?",
@@ -346,17 +347,19 @@
                     "C": "USB adapter",
                     "D": "Port dust covers"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "12": {
-                "Question": "",
+                "Question": "What is not a visibility level for classes in C++?",
                 "Options": {
                     "A": "public",
                     "B": "hidden",
                     "C": "protected",
                     "D": "private"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "13": {
                 "Question": "When referring to mechanical keyboards, which Cherry MX switch color features a distinct clicky sound and a tactile bump?",
@@ -366,7 +369,8 @@
                     "C": "Red",
                     "D": "Blue"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "14": {
                 "Question": "Internal USB 3.0 first became a native feature on which Intel chipset?",
@@ -376,7 +380,8 @@
                     "C": "Z87",
                     "D": "Z97"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "15": {
                 "Question": "A 27' monitor measures 27' in which dimension?",
@@ -386,7 +391,8 @@
                     "C": "Width",
                     "D": "Diagonally"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "16": {
                 "Question": "Which cable would you use to power a cpu?",
@@ -396,7 +402,8 @@
                     "C": "PCI Express",
                     "D": "E-SATA"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "17": {
                 "Question": "Having 4 intake fans and 2 exhuast fans in a computer case typically results in which of the following?",
@@ -406,7 +413,8 @@
                     "C": "Neutral air pressure",
                     "D": "Peer pressure"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "18": {
                 "Question": "Nvidia began limiting their multi-GPU support to 2-way SLI staring with which GPU architecture?",
@@ -416,7 +424,8 @@
                     "C": "Pascal",
                     "D": "Turing"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "19": {
                 "Question": "Which of these protocols maxes out its bandwidth transfer speed at 10 Gbps?",
@@ -426,7 +435,8 @@
                     "C": "SATA Rev. 3.0",
                     "D": "PCI Express"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "20": {
                 "Question": "What is the name of the motherboard interface used by mainstream GPUs?",
@@ -436,7 +446,8 @@
                     "C": "PCI Excel",
                     "D": "PCI Excellent"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "21": {
                 "Question": "Which of these is typically NOT included with a PC case?",
@@ -446,7 +457,8 @@
                     "C": "Motherboard standoffs",
                     "D": "Thermal paste"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "22": {
                 "Question": "What's the rated voltage for a 3-pin addressable RGB connector?",
@@ -456,7 +468,8 @@
                     "C": "12V",
                     "D": "15V"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "23": {
                 "Question": "What's the least number of components you need to boot into Windows?",
@@ -466,7 +479,8 @@
                     "C": "6",
                     "D": "7"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "24": {
                 "Question": "Which of these CPUs has different number of cores than the rest?",
@@ -476,7 +490,8 @@
                     "C": "AMD Threadripper 1900X",
                     "D": "AMD Ryzen 5 3600X"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "25": {
                 "Question": "In linux, how do you see hidden files in a directory?",
@@ -486,7 +501,8 @@
                     "C": "ls -hn",
                     "D": "ls -R"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "26": {
                 "Question": "Which directory contains configuration files in Linux?",
@@ -496,7 +512,8 @@
                     "C": "/dev/",
                     "D": "/root/"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "27": {
                 "Question": "What is maximum filename size in Linux in bytes?",
@@ -506,7 +523,8 @@
                     "C": "128",
                     "D": "255"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "28": {
                 "Question": "Process which terminates before the parent process exits is known as",
@@ -516,7 +534,8 @@
                     "C": "Child",
                     "D": "None of the above"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "29": {
                 "Question": "In linux, which combination of keys is used to exit from terminal?",
@@ -526,7 +545,8 @@
                     "C": "Ctrl + d",
                     "D": "Ctrl + e"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "30": {
                 "Question": "Which of the following OS is not based on Linux?",
@@ -536,7 +556,8 @@
                     "C": "CentOs",
                     "D": "BSD"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "31": {
                 "Question": "Which command is/are used to remove directory in Linux?",
@@ -546,7 +567,8 @@
                     "C": "Only b",
                     "D": "Both a and b"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "32": {
                 "Question": "Which command is used to change password of your Linux system?",
@@ -556,7 +578,8 @@
                     "C": "change -p",
                     "D": "passwd "
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "33": {
                 "Question": "What was the first successful series of windows operating system?",
@@ -566,7 +589,8 @@
                     "C": "Windows XP",
                     "D": "Windows 95"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "34": {
                 "Question": "What are all versions of Windows operating systems are based on technology?",
@@ -576,7 +600,8 @@
                     "C": "NT",
                     "D": "XP"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "35": {
                 "Question": "MS-DOS operating system is a?",
@@ -586,7 +611,8 @@
                     "C": "Single tasking interface",
                     "D": "All of these"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "36": {
                 "Question": "Windows which is based on computer NT technology is called?",
@@ -596,7 +622,8 @@
                     "C": "windows 3.1",
                     "D": "Windows 95"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "37": {
                 "Question": "In windows what is the default filesystem?",
@@ -606,7 +633,8 @@
                     "C": "exFAT",
                     "D": "APFS"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "38": {
                 "Question": "In macOS what is the default filesystem?",
@@ -616,7 +644,8 @@
                     "C": "exFAT",
                     "D": "APFS"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "39": {
                 "Question": "When was windows 10 released?",
@@ -626,7 +655,8 @@
                     "C": "29 June 2015",
                     "D": "27 June 2015"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "40": {
                 "Question": "When was macOS High Sierra released?",
@@ -636,7 +666,8 @@
                     "C": "25 September 2018",
                     "D": "26 September 2018"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 1
             },
             "41": {
                 "Question": "In networking, what OSI layer is responsible for establishing a temporary communication session between two applications and ensuring that transmitted data can be reassembled in proper sequence?",
@@ -646,7 +677,8 @@
                     "C": "Network",
                     "D": "Data-Link"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             },
             "42": {
                 "Question": "In networking, which message delivery option is used when all devices need to receive the same message simultaneously?",
@@ -656,7 +688,8 @@
                     "C": "Unicast",
                     "D": "Broadcast"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "43": {
                 "Question": "Which statement is true about FTP?",
@@ -666,7 +699,8 @@
                     "C": "The client can choose if FTP is going to establish one or two connections with the server.",
                     "D": "The client can download data from or upload data to the server."
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "44": {
                 "Question": "Which message does an IPv4 host use to reply when it receives a DHCPOFFER message from a DHCP server?",
@@ -676,17 +710,19 @@
                     "C": "DHCPREQUEST",
                     "D": "DHCPACK"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "45": {
                 "Question": "What is the most compressed representation of the IPv6 address 2001:0000:0000:abcd:0000:0000:0000:0001?",
                 "Options": {
-                    "A": "2001::abcd:0:1 ",
-                    "B": "2001:0:abcd::1",
-                    "C": "2001::abcd::1 ",
-                    "D": "2001:0:0:abcd::1"
+                    "A": "2001 :: abcd : 0 : 1 ",
+                    "B": "2001 : 0 : abcd :: 1",
+                    "C": "2001 :: abcd :: 1 ",
+                    "D": "2001 : 0 : 0 : abcd :: 1"
                 },
-                "Answer": "D"
+                "Answer": "D",
+                "Ran": 0
             },
             "46": {
                 "Question": "In networking, what addresses are mapped by the protocol ARP?",
@@ -696,7 +732,8 @@
                     "C": "Destination MAC address to the source IPv4 address.",
                     "D": "Destination IPv4 address to the source MAC address."
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "47": {
                 "Question": "What application protocol is part of the TCP/IP protocol suite?",
@@ -706,7 +743,8 @@
                     "C": "ARP",
                     "D": "NAT"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "48": {
                 "Question": "Which wireless parameter refers to the frequency bands used to transmit data to a wireless access point?",
@@ -716,7 +754,8 @@
                     "C": "Security mode",
                     "D": "Scanning mode"
                 },
-                "Answer": "A"
+                "Answer": "A",
+                "Ran": 0
             },
             "49": {
                 "Question": "What specialised network device is responsible for enforcing access control policies between networks?",
@@ -726,7 +765,8 @@
                     "C": "Firewall",
                     "D": "IDS"
                 },
-                "Answer": "C"
+                "Answer": "C",
+                "Ran": 0
             },
             "50": {
                 "Question": "What type of physical topology can be created by connecting all Ethernet cables to a central device?",
@@ -736,7 +776,8 @@
                     "C": "Bus",
                     "D": "Ring"
                 },
-                "Answer": "B"
+                "Answer": "B",
+                "Ran": 0
             }
         }
     }
