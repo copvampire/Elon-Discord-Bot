@@ -78,7 +78,6 @@ module.exports = {
         
             if(taggedUser.id !== "195174881464156161"){
                 // if (!dataFile[config.serverID]["Cookies"]) dataFile[config.serverID]["Cookies"] = {};
-                if (!dataFile[config.serverID]["Cookies"]) dataFile[config.serverID]["Cookies"] = {};
                 
                 if (!dataFile[config.serverID]["Cookies"][taggedUser.id]){
                     var cookieAmount = 1;
@@ -97,7 +96,6 @@ module.exports = {
                     if (err) throw err;
                 });
 
-
                 if (!dataFile[config.serverID]["Cookies"][message.author.id]){
                     var cookieAmount = 0;
                     var cookieGivenAmount = 1;
@@ -114,7 +112,6 @@ module.exports = {
                 fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
                     if (err) throw err;
                 });
-
 
             }
             message.channel.sendEmbed(cookieEmbed);

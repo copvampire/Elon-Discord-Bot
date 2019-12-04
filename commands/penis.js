@@ -20,8 +20,6 @@ module.exports = {
             var penisNumber = Math.random() * (10 - 0) + 0;
             var penisSize = Math.round(penisNumber);
 
-            if (!dataFile[config.serverID]["Penis_Lengths"]) dataFile[config.serverID]["Penis_Lengths"] = {};
-
             dataFile[config.serverID]["Penis_Lengths"][taggedUser.id] = {
                 Length: penisSize,
                 Measure: penisMeassure

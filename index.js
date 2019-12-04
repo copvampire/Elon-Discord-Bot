@@ -29,6 +29,11 @@ fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
 });
 
 client.on('ready', () => {
+  
+  if (!dataFile[config.serverID]["Quiz_Scores"]) dataFile[config.serverID]["Quiz_Scores"] = {};
+  if (!dataFile[config.serverID]["Penis_Lengths"]) dataFile[config.serverID]["Penis_Lengths"] = {};
+  if (!dataFile[config.serverID]["Cookies"]) dataFile[config.serverID]["Cookies"] = {};
+
     console.log('Ready!');
     client.user.setActivity(config.game);
 

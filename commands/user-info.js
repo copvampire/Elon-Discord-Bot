@@ -25,12 +25,22 @@ module.exports = {
             var penisSize = dataFile[config.serverID]["Penis_Lengths"][taggedUser.id].Length;
             var penisMeassure = dataFile[config.serverID]["Penis_Lengths"][taggedUser.id].Measure;
         }
+        if (!dataFile[config.serverID]["Quiz_Scores"][taggedUser.id]){
+            var Correct = 0;
+            var Wrong = 0;
+            var Answered = 0;
+        }else{
+            var Correct = dataFile[config.serverID]["Quiz_Scores"][taggedUser.id].Correct;
+            var Wrong = dataFile[config.serverID]["Quiz_Scores"][taggedUser.id].Wrong;
+            var Answered = Correct + Wrong;
+        }
 
         var infoEmbed = new Discord.RichEmbed()
         .setColor(Library.getRandomColor())
         .setTitle(`${taggedUser.username} stats`)
         .addField('Cookies:', `Given: ` + cookieAmountGiven + `\n Recieved: ` + cookieAmountRecieved, true)
         .addField('Penis:', penisSize + ` ` + penisMeassure, true)
+        .addField('Quiz scores: A/C/W', Answered + "/" + Correct + "/" + Wrong)
         .addBlankField()
         .setThumbnail(taggedUser.avatarURL)
         .setTimestamp()
