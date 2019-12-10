@@ -5,7 +5,12 @@ const config = require('./config.json');
 module.exports = {
 
     getRandomColor: getRandomColor,
-    getCDMessages: getCDMessages
+    getRandomNumber: getRandomNumber,
+    getCDMessages: getCDMessages,
+    getStartQuizMessage: getStartQuizMessage,
+    getEndQuizMessage: getEndQuizMessage,
+    getCorrectQuizMessage: getCorrectQuizMessage,
+    getWrongQuizMessage: getWrongQuizMessage
 
 }
 
@@ -16,6 +21,14 @@ module.exports = {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
+    }
+
+    function getRandomNumber(length) {
+
+        // var SelectedQuestion = length * Math.random() << 0;
+        var SelectedQuestion = Math.floor((Math.random() * parseInt(length)) + 1);
+
+        return SelectedQuestion;
     }
     
     function getCDMessages() {
@@ -89,7 +102,7 @@ module.exports = {
         var MSTseconds = Math.floor((MSTdistance % (1000 * 60)) / 1000);
         var MSTmilliseconds = Math.floor(MSTdistance % (1000 * 60 / 1000));
 
-        var TimeMessage = new Discord.RichEmbed()
+        var CountdownMessage = new Discord.RichEmbed()
             .setColor(getRandomColor())
             .setTitle(':snowflake: :snowflake: Christmas countdown!! :snowflake: :snowflake:')
             .setDescription(`If you want one added, just ask Copvampire`)
@@ -146,6 +159,59 @@ module.exports = {
                 " until christmas in the MST timezone", true)
             .setTimestamp()
             .setFooter('Completed on');
+
+        return CountdownMessage;
+    }
+    
+    function getStartQuizMessage(QuestionData, TimeToAnswer) {
+
+        var TimeMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle("You have "+TimeToAnswer+" seconds to answer:")
+            .addField('How to answer', "!quiz <A/B/C/D>")
+            .setDescription(QuestionData.Question)
+            .addField("=-=-=-=-=-=", 'A: ' + QuestionData.Options.A)
+            .addField("=-=-=-=-=-=", 'B: ' + QuestionData.Options.B)
+            .addField("=-=-=-=-=-=", 'C: ' + QuestionData.Options.C)
+            .addField("=-=-=-=-=-=", 'D: ' + QuestionData.Options.D)
+            .setTimestamp()
+            .setFooter('Asked on');
+
+        return TimeMessage;
+    }
+    function getEndQuizMessage() {
+
+        var TimeMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle("Question ended")
+            .setTimestamp()
+            .setFooter('Closed on');
+
+        return TimeMessage;
+    }
+    function getCorrectQuizMessage(UserData) {
+
+        var TimeMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle("Look who is smart! You got it right!")
+            .setDescription("Stats: ")
+            .addField('Correct', UserData.Correct)
+            .addField('Wrong', UserData.Wrong)
+            .setTimestamp()
+            .setFooter('Started on');
+
+        return TimeMessage;
+    }
+    function getWrongQuizMessage(UserData) {
+
+        var TimeMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle("Sorry dumbass, but you were wrong!")
+            .setDescription("Stats: ")
+            .addField('Correct', UserData.Correct)
+            .addField('Wrong', UserData.Wrong)
+            .setTimestamp()
+            .setFooter('Asked on');
 
         return TimeMessage;
     }

@@ -1,7 +1,7 @@
 const got = require('got');
 module.exports = {
     name: 'dadjoke',
-    desciprtion: 'tells a dad joke',
+    description: 'tells a dad joke',
     execute(client, config, dataFile, message, args) {
 
         got('https://www.reddit.com/r/dadjokes/random/.json').then(response => {

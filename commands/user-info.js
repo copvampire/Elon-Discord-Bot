@@ -3,6 +3,7 @@ const Library = require('../Lib.js');
 module.exports = {
     name: 'user-info',
     description: 'user information',
+    aliases: ['user', 'info'],
     execute(client, config, dataFile, message, args) {
         
         if (!message.mentions.users.size) {

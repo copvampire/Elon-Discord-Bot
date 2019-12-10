@@ -11,9 +11,16 @@ module.exports = {
         const { commands } = message.client;
 
         if (!args.length) {
-            data.push('Here\'s a list of all my commands:');
-            data.push(commands.map(command => command.name).join(', '));
-            data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+
+                data.push('Here\'s a list of all my commands:');
+                commands.forEach(function (command) {
+                    if (command.description){
+                        data.push(command.name + " - " + command.description)
+                    } else {
+                        data.push(command.name)
+                    }
+                });
+                data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
             return message.author.send(data, { split: true })
                 .then(() => {
@@ -22,7 +29,7 @@ module.exports = {
                 })
                 .catch(error => {
                     console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-                    message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
+                    message.reply('It seems like I can\'t DM you! Do you have DMs disabled?');
                 });
         }
 
@@ -30,7 +37,7 @@ module.exports = {
 		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
 		if (!command) {
-			return message.reply('that\'s not a valid command!');
+			return message.reply('That\'s not a valid command!');
 		}
 
 		data.push(`**Name:** ${command.name}`);

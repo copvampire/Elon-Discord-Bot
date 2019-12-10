@@ -61,9 +61,9 @@ module.exports = {
                 message.channel.sendEmbed(Library.getStartQuizMessage(obj["Questions"][SelectedQuestion], 30 + Question_Fitted))
                 .then(sent => {
 
-                    dataFile["Quiz"]["Settings"] = {
+                    dataFile[config.serverID]["Quiz"] = {
                         Active: "true",
-                        Runs: dataFile["Quiz"]["Settings"].Runs,
+                        Runs: dataFile[config.serverID]["Quiz"].Runs,
                         SelectedQuestion: SelectedQuestion,
                         Message_ID: sent.id
                     }
@@ -78,14 +78,14 @@ module.exports = {
                     // channel.fetchMessage(dataFile["Quiz"]["Settings"].Message_ID).then(msg => msg.delete());
                     // message.channel.messages.fetch(dataFile["Quiz"]["Settings"].Message_ID).edit("Closed");
 
-                    message.channel.fetchMessage(dataFile["Quiz"]["Settings"].Message_ID).then(messagea => {
+                    message.channel.fetchMessage(dataFile[config.serverID]["Quiz"].Message_ID).then(messagea => {
                         // messagea.delete();
                         messagea.edit(Library.getEndQuizMessage());
                         return;
                     })
-                    var NewQuizCount = dataFile["Quiz"]["Settings"].Runs + 1;
+                    var NewQuizCount = dataFile[config.serverID]["Quiz"].Runs + 1;
                     
-                    dataFile["Quiz"]["Settings"] = {
+                    dataFile[config.serverID]["Quiz"] = {
                         Runs: NewQuizCount,
                         Active: "false"
                     }
