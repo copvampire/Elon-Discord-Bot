@@ -7,8 +7,8 @@ module.exports = {
 	execute(client, config, dataFile, message, args) {
 
 		const embed = new Discord.RichEmbed();
-		// got('https://www.reddit.com/r/dankmemes/random/.json').then(response => {
-		got('https://www.reddit.com/r/nonutnovember/random/.json').then(response => {
+		got('https://www.reddit.com/r/dankmemes/random/.json').then(response => {
+		// got('https://www.reddit.com/r/nonutnovember/random/.json').then(response => {
 			let content = JSON.parse(response.body);
 			let permalink = content[0].data.children[0].data.permalink;
 			let memeUrl = `https://reddit.com${permalink}`;

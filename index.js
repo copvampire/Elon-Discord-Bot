@@ -14,6 +14,8 @@ const cooldowns = new Discord.Collection();
 client.commands = new Discord.Collection();
 const commandFlies = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+global.servers = {};
+
 for (const file of commandFlies) {
     const command = require(`./commands/${file}`);
 
@@ -30,11 +32,12 @@ fs.writeFile("./data.json", JSON.stringify(dataFile, null, 4), err => {
 
 client.on('ready', () => {
   
+  if (!dataFile[config.serverID]["Annoy_Targets"]) dataFile[config.serverID]["Annoy_Targets"] = {};
   if (!dataFile[config.serverID]["Quiz_Scores"]) dataFile[config.serverID]["Quiz_Scores"] = {};
   if (!dataFile[config.serverID]["Penis_Lengths"]) dataFile[config.serverID]["Penis_Lengths"] = {};
   if (!dataFile[config.serverID]["Cookies"]) dataFile[config.serverID]["Cookies"] = {};
 
-    console.log('Ready!');
+    console.warn('\nReady!\n');
     client.user.setActivity(config.game);
 
     var startMessage = new Discord.RichEmbed()
@@ -51,6 +54,7 @@ client.on('ready', () => {
 
 if (dataFile[config.serverID]["Settings"].CountdownActive == "true") {
   schedule.scheduleJob({
+    dayOfWeek: 0,
     hour: 00,
     minute: 00
   }, function () {
@@ -260,6 +264,8 @@ client.on('messageReactionRemove', (reaction, user) => {
 
 client.on('message', message => {
 
+  if (!message.content.startsWith(config.prefix)) return;
+
     const args = message.content.slice(config.prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 
@@ -312,6 +318,7 @@ client.on('message', message => {
         console.error(error);
         message.reply('there was an error trying to execute the command!');
     }
+  
 });
 
 // login to Discord with your app's token

@@ -10,9 +10,15 @@ module.exports = {
     getStartQuizMessage: getStartQuizMessage,
     getEndQuizMessage: getEndQuizMessage,
     getCorrectQuizMessage: getCorrectQuizMessage,
-    getWrongQuizMessage: getWrongQuizMessage
+    getWrongQuizMessage: getWrongQuizMessage,
+    getServerMessage: getServerMessage,
+    sortProperties: sortProperties,
+    isInArray: isInArray
 
 }
+    function isInArray(value, array) {
+        return array.indexOf(value) > -1;
+    }
 
     function getRandomColor() {
         var letters = '0123456789ABCDEF';
@@ -163,11 +169,11 @@ module.exports = {
         return CountdownMessage;
     }
     
-    function getStartQuizMessage(QuestionData, TimeToAnswer) {
+    function getStartQuizMessage(QuestionData, TopicName, TimeToAnswer) {
 
         var TimeMessage = new Discord.RichEmbed()
             .setColor(getRandomColor())
-            .setTitle("You have "+TimeToAnswer+" seconds to answer:")
+            .setTitle("You have "+TimeToAnswer+" seconds to this " + TopicName + " question:")
             .addField('How to answer', "!quiz <A/B/C/D>")
             .setDescription(QuestionData.Question)
             .addField("=-=-=-=-=-=", 'A: ' + QuestionData.Options.A)
@@ -179,6 +185,7 @@ module.exports = {
 
         return TimeMessage;
     }
+
     function getEndQuizMessage() {
 
         var TimeMessage = new Discord.RichEmbed()
@@ -189,6 +196,7 @@ module.exports = {
 
         return TimeMessage;
     }
+
     function getCorrectQuizMessage(UserData) {
 
         var TimeMessage = new Discord.RichEmbed()
@@ -202,6 +210,7 @@ module.exports = {
 
         return TimeMessage;
     }
+
     function getWrongQuizMessage(UserData) {
 
         var TimeMessage = new Discord.RichEmbed()
@@ -214,4 +223,59 @@ module.exports = {
             .setFooter('Asked on');
 
         return TimeMessage;
+    }
+
+    function getServerMessage(serverID) {
+        
+        var DataQuiz = dataFile[config.serverID]["Quiz_Scores"];
+        var DataCookie = dataFile[config.serverID]["Cookies"];
+
+        var Top5CookieGivers = sortProperties(DataCookie, "Given", true, true, 5);
+        var Top5CookieRecivers = sortProperties(DataCookie, "Recieved", true, true, 5);
+        var Top5QuizCorrect = sortProperties(DataQuiz, "Correct", true, true, 5);
+        var Top5QuizWrong = sortProperties(DataQuiz, "Wrong", true, true, 5);
+
+        var ServerMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle(serverID.name)
+            .addField('Stats:', `Members: ` + serverID.member_count, true)
+            .addField('Location of server:', serverID.region, true)
+            .addBlankField()
+            .addField('Top Cookies:', `Top 5 Horders`, true)
+            .addField('=-=-=-=-=-=-', `Top 5 Givers`, true)
+            .addBlankField()
+            .addField('Top Quizers:', `Top 5 Correct`, true)
+            .addField('=-=-=-=-=-=-', `Top 5 wrong`, true)
+            .setTimestamp()
+            .setFooter("Read on ");
+
+            console.warn(sortProperties(DataQuiz, "Correct", true, true, 5));
+
+        return ServerMessage;
+    }
+
+    function sortProperties(obj, sortedBy, isNumericSort, reverse, amount) {
+        sortedBy = sortedBy || 1; // by default first key
+        isNumericSort = isNumericSort || false; // by default text sort
+        reverse = reverse || false; // by default no reverse
+
+        var reversed = (reverse) ? -1 : 1;
+
+        var sortable = [];
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                sortable.push([key, obj[key]]);
+            }
+        }
+        if (isNumericSort)
+            sortable.sort(function (a, b) {
+                return reversed * (a[1][sortedBy] - b[1][sortedBy]);
+            });
+        else
+            sortable.sort(function (a, b) {
+                var x = a[1][sortedBy].toLowerCase(),
+                    y = b[1][sortedBy].toLowerCase();
+                return x < y ? reversed * -1 : x > y ? reversed : 0;
+            });
+        return sortable.slice(0, amount); // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
     }

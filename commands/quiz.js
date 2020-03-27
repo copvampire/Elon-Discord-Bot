@@ -1,18 +1,19 @@
 const Library = require('../Lib.js');
+const questionsFile = require('../questions.json');
 const fs = require('fs');
+
 module.exports = {
     name: 'quiz',
     cooldown: 30,
     description: 'Answer a tech question',
     execute(client, config, dataFile, message, args) {
         var Role = message.guild.roles.find(Role => Role.name === config.modrank);
-        var obj = dataFile["Quiz"];
 
-        if(obj["Settings"].Active == "true"){
+        if(dataFile[config.serverID]["Settings"]["Quiz"].Active == "true"){
             if(args[0]){
                 if(args[0] !== "stop"){
-                    var SelectedQuestion = dataFile["Quiz"]["Settings"].SelectedQuestion;
-                    if(args[0].toUpperCase() == obj["Questions"][SelectedQuestion].Answer){
+                    var SelectedQuestion = dataFile[config.serverID]["Settings"]["Quiz"].SelectedQuestion;
+                    if(Library.isInArray(args[0].toUpperCase(), questionsFile[dataFile[config.serverID]["Settings"]["Quiz"].SelectedTopic]["Questions"][SelectedQuestion].Answer) == true){
                         
                         if (!dataFile[config.serverID]["Quiz_Scores"][message.author.id]) {
                             var CorrectAnswers = 1;
@@ -77,12 +78,12 @@ module.exports = {
                 }else{
                     
                     if (message.member.roles.has(Role.id)) {
-                        message.channel.fetchMessage(dataFile["Quiz"]["Settings"].Message_ID).then(messagea => {
+                        message.channel.fetchMessage(dataFile[config.serverID]["Settings"]["Quiz"].Message_ID).then(messagea => {
                             // messagea.delete();
                             messagea.edit(Library.getEndQuizMessage());
 
-                            dataFile["Quiz"]["Settings"] = {
-                                Runs: dataFile["Quiz"]["Settings"].Runs,
+                            dataFile[config.serverID]["Settings"]["Quiz"] = {
+                                Runs: dataFile[config.serverID]["Settings"]["Quiz"].Runs,
                                 Active: "false"
                             }
                     
