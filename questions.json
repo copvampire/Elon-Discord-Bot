@@ -778,38 +778,884 @@
         }
     },
     "dab": {
-        "1": {
-            "Question": "Is Dab???????",
-            "Options": {
-                "A": "Yesnt",
-                "B": "Non't",
-                "C": " - = = = = = [ EMPTY ] = = = = = - ",
-                "D": " - = = = = = [ EMPTY ] = = = = = - "
+        "Questions": {
+            "1": {
+                "Question": "Is Dab???????",
+                "Options": {
+                    "A": "Yesnt",
+                    "B": "Non't",
+                    "C": " - = = = = = [ EMPTY ] = = = = = - ",
+                    "D": " - = = = = = [ EMPTY ] = = = = = - "
+                },
+                "Answer": ["B"],
+                "Ran": 0
             },
-            "Answer": ["B"],
-            "Ran": 0
-        },
-        "2": {
-            "Question": "ISnt yeet dab???????",
-            "Options": {
-                "A": "Hmmm",
-                "B": "Same xD",
-                "C": " - = = = = = [ Rawr ] = = = = = - ",
-                "D": " - = = = = = [ Yeeter ] = = = = = - "
+            "2": {
+                "Question": "ISnt yeet dab???????",
+                "Options": {
+                    "A": "Hmmm",
+                    "B": "Same xD",
+                    "C": " - = = = = = [ Rawr ] = = = = = - ",
+                    "D": " - = = = = = [ Yeeter ] = = = = = - "
+                },
+                "Answer": ["A"],
+                "Ran": 0
             },
-            "Answer": ["A"],
-            "Ran": 0
-        },
-        "3": {
-            "Question": "LOL DAB",
-            "Options": {
-                "A": "HAHAHAH",
-                "B": "Rofl LEMAUW",
-                "C": " - = = = = = [ EMPTY ] = = = = = - ",
-                "D": " - = = = = = [ EMPTY ] = = = = = - "
-            },
-            "Answer": ["D"],
-            "Ran": 0
+            "3": {
+                "Question": "LOL DAB",
+                "Options": {
+                    "A": "HAHAHAH",
+                    "B": "Rofl LEMAUW",
+                    "C": " - = = = = = [ EMPTY ] = = = = = - ",
+                    "D": " - = = = = = [ EMPTY ] = = = = = - "
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            }
         }
+    },
+    "history": {
+        "Questions": {
+            "1": {
+                "Question": "What is the caliber of the largest naval gun ever mounted to an in service battleship?",
+                "Options": {
+                    "A": "38cm/15inches",
+                    "B": "45.7cm/18Inches",
+                    "C": "60cm/24Inches",
+                    "D": "15.2cm/6Inches"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "2": {
+                "Question": "When Was Russia’s “Red October” Revolution?",
+                "Options": {
+                    "A": "1917",
+                    "B": "1890",
+                    "C": "1912",
+                    "D": "1796"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "3": {
+                "Question": "Which Pharaoh started the Construction of the Pyramids of Giza?",
+                "Options": {
+                    "A": "Elvis Presly",
+                    "B": "Cleopatra",
+                    "C": "Tutankhamun",
+                    "D": "Pharaoh Khufu"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            },
+            "4": {
+                "Question": "Where was Adlof Hitler born?",
+                "Options": {
+                    "A": "Germany",
+                    "B": "Vatican City",
+                    "C": "Austria",
+                    "D": "Australia"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "5": {
+                "Question": "Who first discoverd mainland America?",
+                "Options": {
+                    "A": "Dora The Exlporer",
+                    "B": "Christopher Columbus",
+                    "C": "Viking Leif Eriksson",
+                    "D": "Gon Freecss"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "6": {
+                "Question": "Who in history is the well knwon vampire Count Dracula based of?",
+                "Options": {
+                    "A": "Joseph Stalin",
+                    "B": "Vlad the Impaler",
+                    "C": "Count Dooku",
+                    "D": "nosferatu"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "7": {
+                "Question": "Which one of these wars never actually happened",
+                "Options": {
+                    "A": "The great Australian Emu war",
+                    "B": "The war of the bucket",
+                    "C": "The 335 Years War",
+                    "D": "The Anglo Baltic war"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            },
+            "8": {
+                "Question": "What nation was the first to utilize tanks in warfare?",
+                "Options": {
+                    "A": "The British",
+                    "B": "The Italians",
+                    "C": "The French",
+                    "D": "The Germans"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "9": {
+                "Question": "In what year did America officially join World War 2",
+                "Options": {
+                    "A": "1941",
+                    "B": "1942",
+                    "C": "1939",
+                    "D": "1945"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "10": {
+                "Question": "On which USS battleship was the surrender of Japan signed upon",
+                "Options": {
+                    "A": "USS Montana",
+                    "B": "USS Iowa",
+                    "C": "USS Missouri",
+                    "D": "USS Lexington"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "11": {
+                "Question": "In which shipyard was the Japanese battleship Mikasa constructed",
+                "Options": {
+                    "A": "Yokosuka Dockyards",
+                    "B": "Maizuru Naval Dockyards",
+                    "C": "Vickers shipyard in Barrow-in-Furness, United Kingdom",
+                    "D": "Mitsubishi heavy industries-shimonoseki shipyard & machinery"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "12": {
+                "Question": "Who first discovered the antibiotic penicillin?",
+                "Options": {
+                    "A": "Florence Nightingale",
+                    "B": "Proffessor Oak",
+                    "C": "Howard Florey",
+                    "D": "Alexander Fleming"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            }
+        }
+    },
+    "doctorwho": {
+        "Questions": {
+            "1": {
+                "Question": "On what date was the first ever episode of doctor who broadcast?",
+                "Options": {
+                    "A": "23rd November 1963",
+                    "B": "26th November 1963",
+                    "C": "23rd November 1964",
+                    "D": "26th November 1964"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "2": {
+                "Question": "Who was the first doctor in the rebooted series?",
+                "Options": {
+                    "A": "Paul McGann",
+                    "B": "Christopher Eccleston",
+                    "C": "David Tennant",
+                    "D": "Sylvester McCoy"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "3": {
+                "Question": "Who was the first doctor?",
+                "Options": {
+                    "A": "David Tennant",
+                    "B": "Christopher Eccleston",
+                    "C": "Patrick Troughton",
+                    "D": "William Hartnell"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            },
+            "4": {
+                "Question": "The Fourth Doctor, portrayed by Tom Baker, had a fondness for which sweets?",
+                "Options": {
+                    "A": "Jelly Babies",
+                    "B": "Gummy Bears",
+                    "C": "Jelly Beans",
+                    "D": "Foam Mushrooms"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "5": {
+                "Question": "What relation was the first ever companion to the first Doctor Who?",
+                "Options": {
+                    "A": "Friend",
+                    "B": "Sister",
+                    "C": "Granddaughter",
+                    "D": "Stranger who he saved"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "6": {
+                "Question": "What is the name of the material used in the Dalek's armour",
+                "Options": {
+                    "A": "Dalekanium",
+                    "B": "Daleken",
+                    "C": "Steel",
+                    "D": "Titanium"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "7": {
+                "Question": "Who was the creator of the Daleks",
+                "Options": {
+                    "A": "Doctor Who",
+                    "B": "Davros",
+                    "C": "The Curator",
+                    "D": "Nardole"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "8": {
+                "Question": "Where is the weakspot on a Sontaran?",
+                "Options": {
+                    "A": "Behind the knee",
+                    "B": "Top of the head",
+                    "C": "Back of the neck",
+                    "D": "The crotch"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "9": {
+                "Question": "What race was excluded from the time war?",
+                "Options": {
+                    "A": "Sontaran",
+                    "B": "Cybermen",
+                    "C": "Daleks",
+                    "D": "Raxacoricofallapatorians"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "10": {
+                "Question": "How many hearts does Doctor Who have?",
+                "Options": {
+                    "A": "1",
+                    "B": "2",
+                    "C": "3",
+                    "D": "4"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "11": {
+                "Question": "Ian McNeice appeared as which person in four episodes of Doctor Who in 2010 and 2011?",
+                "Options": {
+                    "A": "Roy Williams",
+                    "B": "Winston Churchill",
+                    "C": "Craig Owens",
+                    "D": "Wilfred Mott"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "12": {
+                "Question": "In the episode from Series 2: 3 (School Reunion), what did the doctor leave for Sarah Jane?",
+                "Options": {
+                    "A": "Gold",
+                    "B": "Time Vortex Manipulator",
+                    "C": "Sonic Screwdriver",
+                    "D": "K-9"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            },
+            "13": {
+                "Question": "Which companion of the eleventh Doctor (Matt Smith) made their first Doctor Who appearance in David Tennant's episode titled 'The Fires of Pompeii' (Series 4, Episode 2)?",
+                "Options": {
+                    "A": "Karen Gillan",
+                    "B": "Arthur Darvill",
+                    "C": "Jenna-Louise Coleman",
+                    "D": "Peter Capaldi"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "14": {
+                "Question": "In Series 3, Episode 7, how many minutes do The Doctor and Martha have before the cargo ship they're summoned to is destroyed when it crashes into a sun?",
+                "Options": {
+                    "A": "38",
+                    "B": "40",
+                    "C": "42",
+                    "D": "44"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "15": {
+                "Question": "The Krillitanes were originally named this before being changed due to copyright",
+                "Options": {
+                    "A": "Krillians",
+                    "B": "Krilliuns",
+                    "C": "Krillitames",
+                    "D": "Krillitines"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "16": {
+                "Question": "Which Game of Thrones actress played Ashildr (also known as Me), who was introduced in the ninth series episode 'The Girl Who Died'?",
+                "Options": {
+                    "A": "Karen Gillan",
+                    "B": "Maisie Williams",
+                    "C": "Jenna-Louise Coleman",
+                    "D": "Sophie Turner"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "17": {
+                "Question": "Which chemical element chokes the respiratory systems of Cybermen?",
+                "Options": {
+                    "A": "Silver",
+                    "B": "Tungsten",
+                    "C": "Gold",
+                    "D": "Carbon"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            },
+            "18": {
+                "Question": "Which of these actors were in the episode 'Day of the doctor'? (Multiple Correct, Pick One)",
+                "Options": {
+                    "A": "Tom Baker",
+                    "B": "David Tennant",
+                    "C": "Matt Smith",
+                    "D": "John Hurt"
+                },
+                "Answer": ["A", "B", "C", "D"],
+                "Ran": 0
+            },
+            "20": {
+                "Question": "Who was the 'War Doctor'?",
+                "Options": {
+                    "A": "Christopher Eccleston",
+                    "B": "David Tennant",
+                    "C": "Matt Smith",
+                    "D": "John Hurt"
+                },
+                "Answer": ["D"],
+                "Ran": 0
+            },
+            "21": {
+                "Question": "What was Bessie?",
+                "Options": {
+                    "A": "A car",
+                    "B": "Compainion",
+                    "C": "Codename for the Doctor",
+                    "D": "Leader of U.N.I.T"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "22": {
+                "Question": "Who was the commanding officer of U.N.I.T that first apeared in 1968?",
+                "Options": {
+                    "A": "Brigadier Alistair Gordon Lethbridge-Stewart",
+                    "B": "Dr. Martha Jones",
+                    "C": "Colonel Mace",
+                    "D": "Sergeant Osgood"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "23": {
+                "Question": "What Doctor wore a long scarf?",
+                "Options": {
+                    "A": "Fourth Doctor",
+                    "B": "Fith Doctor",
+                    "C": "Sixth Doctor",
+                    "D": "Seventh Doctor"
+                },
+                "Answer": ["A"],
+                "Ran": 0
+            },
+            "24": {
+                "Question": "What Doctor would grab a fez if he saw one?",
+                "Options": {
+                    "A": "Tenth Doctor",
+                    "B": "Eleventh Doctor",
+                    "C": "Twelfth Doctor",
+                    "D": "Thirteenth doctor"
+                },
+                "Answer": ["B"],
+                "Ran": 0
+            },
+            "25": {
+                "Question": "What Doctor played a guitar, on a tank in the medieval era?",
+                "Options": {
+                    "A": "Tenth Doctor",
+                    "B": "Eleventh Doctor",
+                    "C": "Twelfth Doctor",
+                    "D": "Thirteenth doctor"
+                },
+                "Answer": ["C"],
+                "Ran": 0
+            }
+        },
+        "cars": {
+            "Questions": {
+                "1": {
+                    "Question": "The slogan for which auto brand is 'the best or nothing'?",
+                    "Options": {
+                        "A": "Audi",
+                        "B": "Vauxhall",
+                        "C": "Mercedes-Benz",
+                        "D": "Ford"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "2": {
+                    "Question": "Which 22-mile long M50 motorway is often referred to as the 'Ross' what?",
+                    "Options": {
+                        "A": "Boss",
+                        "B": "Spur",
+                        "C": "Bob",
+                        "D": "Highway"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "3": {
+                    "Question": "If you are using 'M&S' tyres, what do the letters stand for?",
+                    "Options": {
+                        "A": "Mud & Snow",
+                        "B": "Mix & Skid",
+                        "C": "Muddle & Scram",
+                        "D": "Muck % Snowy"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "4": {
+                    "Question": "Lada is a marque of car manufactured by which country?",
+                    "Options": {
+                        "A": "Italy",
+                        "B": "Canada",
+                        "C": "Russia",
+                        "D": "Uzbekistan"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "5": {
+                    "Question": "The Ford Model T was given which two word nickname?",
+                    "Options": {
+                        "A": "Wheelie Steely",
+                        "B": "Tin Lizzie",
+                        "C": "Crashy Crash",
+                        "D": "Highway Breaker"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "6": {
+                    "Question": "Which is not a fluid your car needs?",
+                    "Options": {
+                        "A": "Headlight Fliud",
+                        "B": "Oil",
+                        "C": "Gas",
+                        "D": "Brake Fluid"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "7": {
+                    "Question": "How many rings does the Audi logo have?",
+                    "Options": {
+                        "A": "5",
+                        "B": "10",
+                        "C": "3",
+                        "D": "4"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "8": {
+                    "Question": "What is the best selling car of all time?",
+                    "Options": {
+                        "A": "Honda Civic",
+                        "B": "Toyota Corolla",
+                        "C": "Ford F-Series",
+                        "D": "Volkswagen Golf "
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "9": {
+                    "Question": "What was the original engine size of the mk1 Golf GTI?",
+                    "Options": {
+                        "A": "1.2L",
+                        "B": "1.4L",
+                        "C": "1.6L",
+                        "D": "1.8L"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "10": {
+                    "Question": "What's the fastest SUV around the Nurburgring?",
+                    "Options": {
+                        "A": "Mercedes-Benz AMG GLC 63 S",
+                        "B": "Porsche Cayenne Turbo",
+                        "C": "BMW X5 M",
+                        "D": "VW Touareg V10 TDI"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "11": {
+                    "Question": "How much horsepower did the Trabant have?",
+                    "Options": {
+                        "A": "6bhp",
+                        "B": "11bhp",
+                        "C": "40bhp",
+                        "D": "25bhp"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "12": {
+                    "Question": "Which of these German car companies is the oldest?",
+                    "Options": {
+                        "A": "Elektromaschinenbau Fulda",
+                        "B": "Porsche",
+                        "C": "VW",
+                        "D": "BMW"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "13": {
+                    "Question": "The Supra featured in what film franchise?",
+                    "Options": {
+                        "A": "The Italian job",
+                        "B": "Mr Beans Family Holiday",
+                        "C": "Fast and Furious",
+                        "D": "Starsky and Hutch"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "14": {
+                    "Question": "What was the main car from Starsky and Hutch?",
+                    "Options": {
+                        "A": "Ford Gran Torino",
+                        "B": "Toyota Supra",
+                        "C": "Gumpert Apollo",
+                        "D": "Morris Minor"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "15": {
+                    "Question": "Which of the following is NOT a Ferrari model?",
+                    "Options": {
+                        "A": "308 GTS",
+                        "B": "F30",
+                        "C": "F355 Spider",
+                        "D": "612 Scaglietti"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "16": {
+                    "Question": "What is the starting price for a 2014 Fiat 500 Abarth?",
+                    "Options": {
+                        "A": "$25,095",
+                        "B": "$18,095",
+                        "C": "$28,095",
+                        "D": "$22,095"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "17": {
+                    "Question": "How many WRC Titles does Lancia hold?",
+                    "Options": {
+                        "A": "12",
+                        "B": "7",
+                        "C": "4",
+                        "D": "5"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "18": {
+                    "Question": "Who is the most succesful driver in WRC?",
+                    "Options": {
+                        "A": "Sebastien Loeb",
+                        "B": "Marcus Gronholm",
+                        "C": "Walter Rohrl",
+                        "D": "Tommi Makinen"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "19": {
+                    "Question": "Where did the name for the McLaren 'F1' come from?",
+                    "Options": {
+                        "A": "It was named after Wayne Gretzky ('The Great One') with the name Fast 1",
+                        "B": "it was the first street car to have F1 technology",
+                        "C": "To compete with the Toyota 'GT'-1",
+                        "D": "It was to make fun of the Ferrari F40"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "20": {
+                    "Question": "What is the performance brand 'Garrett' BEST known for?",
+                    "Options": {
+                        "A": "Brakes",
+                        "B": "Exhaust Systems",
+                        "C": "Alternators",
+                        "D": "Turbos"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "21": {
+                    "Question": "How much horsepower does the Chevy Camaro ZL1 have?",
+                    "Options": {
+                        "A": "624",
+                        "B": "640",
+                        "C": "498",
+                        "D": "550"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "22": {
+                    "Question": "Which car company first made the turn signal a standard feature?",
+                    "Options": {
+                        "A": "Chevrolet",
+                        "B": "Hudson",
+                        "C": "Buick",
+                        "D": "Ford"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "23": {
+                    "Question": "What SUV came with a standard flip-out picnic table and optional shower kit?",
+                    "Options": {
+                        "A": "Honda CR-V",
+                        "B": "Jeep Liberty",
+                        "C": "Pontiac Aztek",
+                        "D": "Chevrolet Blazer"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "24": {
+                    "Question": "What was the first vehicle to have AWD?",
+                    "Options": {
+                        "A": "Subaru Impreza",
+                        "B": "Lancia Stratos",
+                        "C": "Opel Tigra",
+                        "D": "Jensen FF"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "25": {
+                    "Question": "What is the size of a STOCK Honda Accord steering wheel? (in inches)?",
+                    "Options": {
+                        "A": "12",
+                        "B": "13",
+                        "C": "14",
+                        "D": "14.5"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                }
+            }
+        },
+        "anime": {
+            "Questions": {
+                "1": {
+                    "Question": "How do you write Anime in japanese?",
+                    "Options": {
+                        "A": "アニメ",
+                        "B": "おまえわ もう しんでいる",
+                        "C": "うんこ",
+                        "D": "AnImE"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "2": {
+                    "Question": "What was the name of the airship from Date a live?",
+                    "Options": {
+                        "A": "Amagi",
+                        "B": "USG Ishimura",
+                        "C": "Fraxinus",
+                        "D": "Tardis"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "3": {
+                    "Question": "What is the name of the predatory organ attached to a Ghoul in Tokyo Ghoul",
+                    "Options": {
+                        "A": "Shirogane",
+                        "B": "Kagune",
+                        "C": "Kigane",
+                        "D": "Chakra"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "4": {
+                    "Question": "In Attack on Titan what is the name of the outer wall that is breached in the first season",
+                    "Options": {
+                        "A": "Wall Rose",
+                        "B": "Wall Alpha",
+                        "C": "Wall 1",
+                        "D": "Wall Maria"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "5": {
+                    "Question": "In the Anime Zero no Tsukaima(Fammilliar of zero) what is the staff of destruction?",
+                    "Options": {
+                        "A": "A rocket launcher",
+                        "B": "A dragons horn",
+                        "C": "An old God's dong",
+                        "D": "A shotgun"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "6": {
+                    "Question": "In the Anime Bleach what is the name of Yoruichi Shiohin's Bankai?",
+                    "Options": {
+                        "A": "Tensa Zangetsu",
+                        "B": "Jakuhō Raikōben",
+                        "C": "Hakka no Togame",
+                        "D": "Unknown"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "7": {
+                    "Question": "Which one of these shows is not technically an anime?",
+                    "Options": {
+                        "A": "Jojo's Bizzare adventures",
+                        "B": "Avatar: The Last Airbender",
+                        "C": "Panty & Stocking with Garterbelt",
+                        "D": "pop team epic"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "8": {
+                    "Question": "In the anime Toradora which character has the nickame Temori Tiger or in English palmtop tiger",
+                    "Options": {
+                        "A": "Taiga Aisaka",
+                        "B": "Takasu, Ryuuji",
+                        "C": "Inko",
+                        "D": "Kugimiya Rie"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                },
+                "9": {
+                    "Question": "What anime is the song mukanjo performed by survive said the prophet the opening off?",
+                    "Options": {
+                        "A": "Black Clover",
+                        "B": "Demon slayer/Kimetsu no Yaiba",
+                        "C": "Vinland Saga",
+                        "D": "Death note"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "10": {
+                    "Question": "In what anime can you witness a potato peeling itself and jumping into a cooking pot?",
+                    "Options": {
+                        "A": "Shokugeki no Souma/Food Wars!",
+                        "B": "Dai Mahou Touge/Magical Witch Punie-Chan",
+                        "C": "Yume-iro Pâtissière/Dream-Colored Pastry Chef",
+                        "D": "Ben-To/Bento"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "11": {
+                    "Question": "In the anime Naruto what is the name of the Monster sealed within Naruto",
+                    "Options": {
+                        "A": "Gara",
+                        "B": "Tim",
+                        "C": "Kyubi/Ninetails",
+                        "D": "Kurama"
+                    },
+                    "Answer": ["D"],
+                    "Ran": 0
+                },
+                "12": {
+                    "Question": "In the anime Campione what god does the main character Kusanagi Goudo's powers come from?",
+                    "Options": {
+                        "A": "Zeus",
+                        "B": "The writer of this question",
+                        "C": "Verethragna",
+                        "D": "Venus"
+                    },
+                    "Answer": ["C"],
+                    "Ran": 0
+                },
+                "13": {
+                    "Question": "How do the characters Meliodas and Ban break out off the eternal seal spell in the anime 7 deadly sins",
+                    "Options": {
+                        "A": "They cancel the spell with magic",
+                        "B": "They have a friendly arm wrestle",
+                        "C": "They fight eachother",
+                        "D": "They break the barrier together"
+                    },
+                    "Answer": ["B"],
+                    "Ran": 0
+                },
+                "14": {
+                    "Question": "what car dous Takumi drive from Initial D",
+                    "Options": {
+                        "A": "Toyota Sprinter Trueno GT-APEX (AE86) 1983",
+                        "B": "Honda Civic Type R (EK9) 1998",
+                        "C": "Mitsubishi Lancer Evolution VI GSR Tommi Makinen Edition (CP9A) 1999",
+                        "D": "Nissan Sileighty 1996"
+                    },
+                    "Answer": ["A"],
+                    "Ran": 0
+                }
+            }
+        }
+
+
+
     }
 }
