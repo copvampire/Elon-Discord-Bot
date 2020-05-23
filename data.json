@@ -220,10 +220,18 @@
                 "Given": 1
             }
         },
+        "Submitted_Codes": {
+
+        },
         "Settings": {
             "CountdownActive": "true",
             "CountdownChannel": "the-handpump-pub",
             "Countdown": "25 Dec 2020 00:00:00 GMT",
+            "GiveawaySettings":{
+                "GiveawayActive": "true",
+                "GiveawayChannel": "bot-test",
+                "GiveawayDate": "23 May 2020 18:20:00 GMT"
+            },
             "Quiz": {
                 "Tech_Runs": 7,
                 "Car_Runs": 2,

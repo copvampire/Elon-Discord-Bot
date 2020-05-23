@@ -64,6 +64,15 @@ if (dataFile[config.serverID]["Settings"].CountdownActive == "true") {
   });
 }
 
+if (dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayActive == "true") {
+  date = new Date(dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayDate);
+  schedule.scheduleJob({ date }, function () {
+
+    client.channels.find("name", dataFile[config.serverID]["Settings"].CountdownChannel).sendEmbed(Library.getCDMessages());
+
+  });
+}
+
 client.on("guildMemberAdd", function (member) {
 
     var welcomeMessage = new Discord.RichEmbed()
