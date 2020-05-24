@@ -12,7 +12,10 @@ module.exports = {
         var TopicArray = [
             "tech",
             "cars",
-            "science"
+            "science",
+            "history",
+            "anime",
+            "doctorwho"
           ];
 
         if(dataFile[config.serverID]["Settings"]["Quiz"].Active == "false"){

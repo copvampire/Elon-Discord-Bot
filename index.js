@@ -68,7 +68,44 @@ if (dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayActive == 
   date = new Date(dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayDate);
   schedule.scheduleJob({ date }, function () {
 
-    client.channels.find("name", dataFile[config.serverID]["Settings"].CountdownChannel).sendEmbed(Library.getCDMessages());
+    client.channels.find("name", dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayChannel).sendEmbed(Library.getEndGiveaway());
+
+    submittedData = dataFile[config.serverID]["Settings"]["GiveawaySettings"].Submitted_Codes;
+
+    var FullList = {};
+    var NameList = [];
+    var CodeList = [];
+
+    for (let [key, value] of Object.entries(object1)) {
+      for (let [user_key, username] of Object.entries(value)) {
+        console.log(`${key}: ${username}`);
+        FullList[key] = username;
+        NameList.push(`${username}`);
+        CodeList.push(`${key}`);
+      }
+    }
+    function RandomItem() {
+      var randomCode = CodeList[Math.floor(Math.random() * CodeList.length)];
+      return randomCode;   // The function returns the product of p1 and p2
+    }
+
+    var i;
+    for (i = 0; i < NameList.length; i++) {
+      // text += cars[i] + "<br>";
+      var randomCode = RandomItem();
+      if(Object.values(FullList[randomCode]) == NameList[i]){
+        console.log(`${randomCode}: ${NameList[i]}`);
+      }else{
+        console.log(`${randomCode}: ${NameList[i]}`);
+      }
+    }
+  
+  });
+  schedule.scheduleJob({
+    hour: 12
+  }, function () {
+
+    client.channels.find("name", dataFile[config.serverID]["Settings"]["GiveawaySettings"].GiveawayChannel).sendEmbed(Library.getDuringGiveaway());
 
   });
 }

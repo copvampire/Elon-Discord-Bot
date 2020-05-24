@@ -8,6 +8,7 @@ module.exports = {
     getRandomNumber: getRandomNumber,
     getCDMessages: getCDMessages,
     getStartGiveaway: getStartGiveaway,
+    getDuringGiveaway: getDuringGiveaway,
     getEndGiveaway: getEndGiveaway,
     getStartQuizMessage: getStartQuizMessage,
     getEndQuizMessage: getEndQuizMessage,
@@ -176,6 +177,19 @@ module.exports = {
         var TimeMessage = new Discord.RichEmbed()
             .setColor(getRandomColor())
             .setTitle("Steam code giveaway has started:")
+            .addField('How to enter', "DM me !submit <code>")
+            .addField('What happens on end:', 'The amount of games you enter,\n you will recieve the same back')
+            .addField('Rules:', '£5 mininum spend (Full price only counts)')
+            .setTimestamp()
+            .setFooter('Ends on: ' + config[config.serverID]["Settings"]["GiveawaySettings"].GiveawayDate);
+
+        return TimeMessage;
+    }
+    function getDuringGiveaway() {
+
+        var TimeMessage = new Discord.RichEmbed()
+            .setColor(getRandomColor())
+            .setTitle("Steam code giveaway is currently underway:")
             .addField('How to enter', "DM me !submit <code>")
             .addField('What happens on end:', 'The amount of games you enter,\n you will recieve the same back')
             .addField('Rules:', '£5 mininum spend (Full price only counts)')
