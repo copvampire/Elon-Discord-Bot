@@ -1,53 +1,62 @@
-const { prefix } = require('../config.json');
+const { codeBlock } = require("discord.js");
+const { toProperCase } = require("../modules/functions.js");
 
-module.exports = {
-    name: 'help',
-    description: 'List all of my commands or info about a specific command',
-    aliases: ['command'],
-    usage: '[command name]',
-    cooldown: 5,
-    execute(client, config, dataFile, message, args) {
-        const data = [];
-        const { commands } = message.client;
+exports.run = (client, message, args, level) => {
+  // If no specific command is called, show all filtered commands.
+  const { container } = client;
+  if (!args[0]) {
+    // Load guild settings (for prefixes and eventually per-guild tweaks)
+    const settings = message.settings;
 
-        if (!args.length) {
+    // Filter all commands by which are available for the user's level
+    const myCommands = message.guild ? container.commands.filter(cmd => container.levelCache[cmd.conf.permLevel] <= level) :
+      container.commands.filter(cmd => container.levelCache[cmd.conf.permLevel] <= level && cmd.conf.guildOnly !== true);
 
-                data.push('Here\'s a list of all my commands:');
-                commands.forEach(function (command) {
-                    if (command.description){
-                        data.push(command.name + " - " + command.description)
-                    } else {
-                        data.push(command.name)
-                    }
-                });
-                data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+    // v14 FIX: .keyArray() is removed. Use [...keys()]
+    const commandNames = [...myCommands.keys()];
+    const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
-            return message.author.send(data, { split: true })
-                .then(() => {
-                    if (message.channel.type == 'dm') return;
-                    message.reply('I\'ve sent you a DM with all my commands!');
-                })
-                .catch(error => {
-                    console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-                    message.reply('It seems like I can\'t DM you! Do you have DMs disabled?');
-                });
-        }
+    let currentCategory = "";
+    let output = `= Command List =\n\n[Use ${settings.prefix}help <commandname> for details]\n`;
+    
+    // v14 FIX: .array() is removed. Use [...values()]
+    const sorted = [...myCommands.values()].sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
+    
+    sorted.forEach( c => {
+      // FIX: toProperCase is a function, not a string method
+      const cat = toProperCase(c.help.category);
+      if (currentCategory !== cat) {
+        output += `\u200b\n== ${cat} ==\n`;
+        currentCategory = cat;
+      }
+      output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
+    });
+    
+    // v14 FIX: Use codeBlock helper and object syntax for send
+    message.channel.send({ content: codeBlock("asciidoc", output) });
 
-        const name = args[0].toLowerCase();
-		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+  } else {
+    // Show individual command's help.
+    let command = args[0];
+    if (container.commands.has(command)) {
+      command = container.commands.get(command);
+      if (level < container.levelCache[command.conf.permLevel]) return;
+      
+      message.channel.send({ content: codeBlock("asciidoc", `= ${command.help.name} = \n${command.help.description}\nusage:: ${command.help.usage}\naliases:: ${command.conf.aliases.join(", ")}\n= ${command.help.name} =`) });
+    }
+  }
+};
 
-		if (!command) {
-			return message.reply('That\'s not a valid command!');
-		}
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["h", "halp"],
+  permLevel: "User"
+};
 
-		data.push(`**Name:** ${command.name}`);
-
-		if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
-		if (command.description) data.push(`**Description:** ${command.description}`);
-		if (command.usage) data.push(`**Usage:** ${prefix}${command.usage}`);
-
-		data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
-
-		message.channel.send(data, { split: true });
-    },
+exports.help = {
+  name: "help",
+  category: "System",
+  description: "Displays all the available commands for your permission level.",
+  usage: "help [command]"
 };

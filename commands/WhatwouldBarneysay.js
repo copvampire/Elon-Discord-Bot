@@ -1,0 +1,130 @@
+/*
+The WWBS command is used to display a random quote from Barney Stinson
+*/
+const config = require("../config.js");
+const { settings } = require("../modules/settings.js");
+
+exports.run = (client, message, args, level) => {
+
+    const wwbs = [
+        "Don’t say you’re gonna kill someone in front of airport security. Not cool.",
+        "The girl from last night, I took her back to my place, then this morning spun her around a couple of times and sent her walking. She’ll never find her way back and there she is!",
+        "Look, our forefathers died for the ‘pursuit of happiness,’ okay? Not for the ‘sit around and wait of happiness.’ Now if you want, we can go to the same bar, drink the same beer, talk to the same people every day or you can lick the Liberty Bell. You can grab life by the crack and lick the crap out of it.",
+        "I’ve been dreaming of that since I was five. Well, that and my own operational Death Star.",
+        "ARTICLE 41: A Bro never cries. Exceptions: Watching Field of Dreams, E.T., or a sports legend retire.",
+        "One of the twenty-four similarities between girls and fish is that they’re both attracted to shiny objects. You really never read my blog, do you?",
+        "Oh, Ted, no. Do not tell me you’re going to start searching for ‘The One’ again. The only time I want to hear you saying ‘The One’ is if it’s followed by the word ‘hundredth.'",
+        "Attention, Canada! My name is Barney Stinson, and your country needs to A, get better money, it’s like you want us to make fun of you; and B, stop letting women like Robin Scherbatsky get away, because she is going back to America, where I plan to plant my flag on her, if you know what I mean, and you probably don’t.",
+        "The killer in a horror movie does not stand in front of the camp cabins with a bullhorn and shout, 'Attention, unguarded teens! At 3:00 I will jump out of that closet and hack you to death with a machete. By the way, my only weakness is fire.'",
+        "I think tonight is going to be de — wait for it — lightful.",
+        "A girl is allowed to be crazy as long as she is equally hot. Thus, if she’s *this* crazy, she has to be *this* hot. You want the girl to be above this line. Also known as the ‘Vickie Mendoza Diagonal.’ This girl I dated. She played jump rope with that line. She’d shave her head, then lose 10 pounds. She’d stab me with a fork, then get a boob job. [Pauses] I should give her a call.",
+        "Ted, you know who’s a million times hotter than the hottest girl I’ve ever slept with? Her okay-looking friend I haven’t seen naked. Why? Because new is always better.",
+        "Canadian porn! Trust me when I tell you that their universal health care system doesn’t cover breast implants. If I have to sit through one more flat-chested Nova Scotian riding a Mountie on the back of a Zamboni, I’ll go *oot* of my mind.",
+        "There’s only one street where that is normal. Here’s a hint: a big, yellow bird lives on it. ",
+        "Because the belt is my birthright. You can’t ride the tricycle before me. It’s like Jimmy Olsen beating Lex Luthor while Superman watches impotently in his bed.",
+        "Okay, I can do this… I was on my way to the launch pad, when I was mugged… and the mugger took my space shuttle keys! Nailed it, who’s up for a threeway?",
+        "That is the Dominator 8000. The best in the market, according to my whip guy. Yeah, I have a whip guy.",
+        "I can’t believe I’m taking sex advice from Ted Mosby. It’s like taking fashion advice from, well, Ted Mosby.",
+        "ARTICLE 54: A Bro is required to go out with his Bros on St. Patty’s Day and other official Bro holidays, including Halloween, New Year’s Eve, and Desperation Day (February 13).",
+        "Unfair? I would not let you take care of the imaginary kids I make up to score with single moms!",
+        "I won! I now have a magic phone that never stops ringing. And who’s usually at the other end? A hot chick. The number of women who want me is now infinity!",
+        "You poor thing. Having to grow up in Canada, with America right there.",
+        "Curiosity. As in what would it be like to do it with a really tall girl. Not a big girl, a tall girl. Like if a normal girl were seven, seven-and-a-half feet tall, and had a very short denim skirt, I would have to know what that was like.",
+        "Canada, you did it again! You even managed to ruin this! Why? Why do we even let you be a country?",
+        "For the first time, ever, the three of us are single at the same time. I’ve dreamed about this day, boys, and it’s going to be *legendary*. Together, we will own this city. Anytime a girl wants to get back at her ex-boyfriends, we’ll be there. Anytime a girl wants to solve her father issues through promiscuity and binge drinking, *we will be* there. Anytime a bachelorette party drives through the city in a limo, sticking their heads out the sunroof, shouting, 'What’s up, New York,' *we* will be what is up New York.",
+        "ARTICLE 85: If a Bro buys a new car, he is required to pop the hood when showing it off to his Bros. Corollary: His Bros are required to whistle, even if they have no idea what they’re whistling at.",
+        "There are only two reasons to date a girl you’ve already dated. Breast. Implants.",
+        "I only smoke on certain occasions: post-coital, when I’m with Germans – sometimes the two overlap – coital, that time of year the Mets are mathematically eliminated, pre-coital, and – wait for it, ’cause I sure have – pregnancy scares.",
+        "I was on my way to the Perfect Week. Seven nights, seven girls, no rejections.",
+        "What does Ted see in that horrible woman? I mean, sure, she has boobs… Actually, I do see it. ",
+        "You know what I love about Halloween? It’s the one night of the year chicks use to unleash their inner ho-bag. If a girl dresses up as a witch, she’s a slutty witch. If she’s a cat, she’s a slutty cat. If she’s a nurse… ",
+        "Hey, so you know how I’ve always had a thing for half-Asian chicks? Well, now I’ve got a new thing. Lebanese chicks. Lebanese chicks are the new half-Asians.",
+        "When I get sad, I stop being sad and be awesome instead.",
+        "The only reason to wait a month for sex is if she is 17 years 11 months old.",
+        "A lie is just a great story that someone ruined with the truth.",
+        "Ted, if you have a crazy story, I was there. It’s just a law of the universe.",
+        "Every Halloween, I bring a spare costume, in case I strike out with the hottest girl in the party. That way, I have a second chance to make a first impression.",
+        "You know who is confused? Bimbos! They are easily confused. It’s one of the thousand little things I love about them. I love their vacant, trusting stares; their sluggish unencumbered minds; their unresolved daddy issues.",
+        "Think of me like Yoda, but instead of being little and green, I wear suits and I am awesome. I’m your bro. I’m Broda.",
+        "It’s going to be legen…wait for it…and I hope you’re not lactose-intolerant cause the second half of that word is…dairy!",
+        "Believe it or not, I was not always as awesome as I am today.",
+        "Ted, I believe you and I met for a reason. It’s like the universe was saying, “Hey Barney, there’s this dude, he’s pretty cool, but it is your job to make him awesome",
+        "Destiny strips at the Melon Patch. They’re people Ted, try to keep ’em straight.",
+        "A Bro is always entitled to do something stupid, as long as the rest of his Bros are all doing it.",
+        "When wearing a baseball cap, a Bro may position the brim at either 12 or 6 o’clock. All other angles are reserved for rappers and the handicapped.",
+        "There are only two reasons to date a girl you’ve already dated: breast implants.",
+        "If there was any shame in a dude getting a pedicure I don’t think there would’ve been a feature about it in Details magazine.",
+        "Open your brain tank, bro, ’cause here comes some premium 91-octane knowledge. There are three rules of cheating: 1. It’s not cheating if you’re not the one who’s married. 2. It’s not cheating if her name has two adjacent vowels. 3. And it’s not cheating if she’s from a different area code. You’re fine on all three counts.",
+        "Do you have some puritanical hang up on prostitution? Dude, it’s the world’s oldest profession.",
+        "That was the night I was born. I rose like a phoenix from her mentholated bosom and strode into the world, Armani-clad and fully awesome.",
+        "The point is, marriage is stupid. Every day new 22-year olds go into bars and call me glass-half-full, but I think they’re getting dumber.",
+        "Suit up!",
+        "This is my lucky St. Paddys Day suit. I have dry-cleaned many a stain out of this baby.",
+        "Step one, you start running. There is no step two.",
+        "Now remember my three beginner’s tips for picking up chicks: Address her by name, isolate her from her friends, and subtly put her down.",
+        "Your ego’s writing checks your body can’t cash.",
+        "Suits are full of joy. They’re the sartorial equivalent of a baby’s smile.",
+        "I realized that I’m searching, searching for what I really want in life. And you know what? I have absolutely no idea what that is.",
+        "I thought love was just something idiots thought they felt, but this woman has a hold on my heart that I could not break if I wanted to — and there have been times that I wanted to.",
+        "It has been… overwhelming and humbling and even painful at times, but I could not stop loving her any more than I could stop breathing.",
+        "You and Marshall belong together. The two of you have something most people search their whole lives for and never find. I know you love him and if you knew what he was going through right now you wouldn’t be here for one more second.",
+        "I love everything about her, and I’m not a guy who says that lightly. I’m a guy who has faked love his entire life.",
+        "I am hopelessly, irretrievably in love with her. More than she knows.",
+        "Sometimes we search for one thing but discover another.",
+        "It’s time to let go of the fantasies. It’s time to grow up.",
+        "Whatever you do in this life, it’s not legendary unless your friends are there to see it.",
+        "In my body, where the shame gland should be, there is a second awesome gland. True story.",
+        "I’ve never seen that woman before in my life! Sorry. Force of habit. Congratulations!",
+        "So, remember, it’s not about scoring. It’s about believing you can do it, even though you probably can’t. Go get ‘em, tiger!",
+        "You’re forcing me to be the voice of reason. And that’s not a good look for me!",
+        "Here’s the mini-cherry on top of the regular cherry on top of the sundae of awesomeness that is my life.",
+        "God, it’s me, Barney. What up? I know we don’t talk much, but I know a lot of girls call out your name because of me.",
+        "Article 100: “When pulling up to a stoplight, a Bro lowers his window so that all might enjoy his music selection.",
+        "If there happens to be a hot chick driving the car next to the Bro, the Bro shall put his sunglasses down to get a better look. If he’s not wearing his sunglasses, he will first put them on, then pull down to get a better look.",
+        "When I let a day go by without talking you… That day is just no good.",
+        "There are only three things I would fight: the stubborn clasp of a bra, a paternity suit – nine for ten… and the urge to vomit whenever I see someone wear brown shoes with a black suit.",
+        "ARTICLE 130 If a Bro learns another Bro has been in a traffic accident, he must first ask what type of car he collided with and whether it got totaled before asking if his Bro is okay.",
+        "Jesus waited three days to come back to life. It was perfect! If he had only waited one day, a lot of people wouldn’t have even heard he died. They’d be all, 'Hey Jesus, what up?' and Jesus would probably be like, 'What up? I died yesterday!' and they’d be all, 'Uh, you look pretty alive to me, dude…'",
+        "Challenge accepted. I, Barney Stinson, of sound mind and amazing body will wear these overalls until have sex with a woman.",
+        "Step six is called purg— wait for it. Keep waiting. Keep waiting for all of eternity only to discover that there’s no escape —atory.",
+        "Marry? Ha-ha-ha. No. I have something much, much more special in mind. Petra, here, if all goes well, will be my — wait for it — 200th! Sorry, I couldn’t wait. It’s all too exciting.",
+        "If I can talk a stripper into paying me for a lap dance, I think I can talk my way out of a ticket.",
+        "I’m sorry, suits, let’s make amends,\nMy Sunday bests are my best friends,\nSend Casual Friday down the laundry chute\n‘Cause nothing suits me, undisputed, oft-saluted, suitor of repute like a — wait for it — suit.",
+        "Dude, working together is going to be legen— wait for it — I’ll send you an in-office memo with the rest because we freaking work together!",
+        "You’re a master. You are legend— wait for it —daddy. Legend-daddy. The man is a god!",
+        "Yeah, getting to stand next to me while I press the button. That is going to be legen— wait for it —dary-adjacent. Legendary-adjacent!",
+        "You watch, Ted, tonight is going to be legen— it’s the night we stole a camel! Which means it will be full of drama —dary.",
+        "I’m just gonna grab this star to put on top of the tree. It’s gonna be legend— wait for it —merry.",
+        "Here’s my dilemma. My average night is like an average guy’s bachelor party, so no offense, but if you two plan it it’s going to be ordi— why wait for it —nary. Ordinary.",
+        "When we leave the church, they’re going to release 100 doves. It’s going to be avi — wait for it — ary. Aviary.",
+        "If I could nail any celebrity, it would definitely be Scarlett Johansson. Hot, talented, and nobody does that many Woody Allen movies without serious daddy issues.",
+        "Ted, I’m gonna teach you how to live. … Lesson 1, lose the goatee. It doesn’t go with your suit.",
+        "Hello, Ted. If you’re watching this tape – and I knew that you would – It means you have my porn collection, and that means either I am dead, or in a relationship. If I’m dead, I need you to take me to the Hamptons and recreate 'Weekend at Bernie’s.' I want to dance. I want to have sex with a young woman. I want to go skiing. If, on the other hand, I’m in a relationship, then for the love of God… get me out of it!",
+        "You don’t bring a date to a wedding, That’s like bringing a deer carcass on a hunting trip.",
+        "ARTICLE 120 A Bro always calls another Bro by his last name. Exception: If a Bro’s last name is also a racial epithet.",
+        "Of course! We should buy a bar. … And dude dude dude duuuude. The name of our bar: Puzzles. People will be like, ‘Why is it called Puzzles?’ That’s the puzzle.",
+        "Possimpible: the place where the possible and impossible meet.",
+        "Without me, it’s just aweso.",
+        "The point is, marriage is stupid. Every day new 22-year olds go into bars, and call me glass-half-full, but I think they’re getting dumber.",
+        "The camera loves me. More than loves me: the camera lusts me. The camera wants to put on some nice lingerie, pop in an Al Green CD, dim the lights and do me as I lie there with my eyes closed."
+    ];
+
+
+    const replying = settings.ensure(message.guild.id, config.defaultSettings).commandReply;
+    message.reply({ content: "He would say: “" + wwbs[Math.floor(Math.random() * wwbs.length)] + "”", allowedMentions: { repliedUser: (replying === "true") }});
+  
+  };
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["whatwouldbarneysay", "wwbs"],
+  permLevel: "User"
+};
+
+exports.help = {
+  name: "WhatwouldBarneysay",
+  category: "Fun",
+  description: "Displays random quote from Barney Stinson.",
+  usage: "WhatwouldBarneysay"
+};
