@@ -1,23 +1,28 @@
 const fetch = require('node-fetch');
 const { EmbedBuilder } = require('discord.js');
+const cron = require('node-cron'); // <--- New Dependency
 
 let lastAlertLevel = 0; 
 
 module.exports = {
     start: function(client, config, dataFile) {
-        console.log("🌌 Aurora Tracker: Online");
+        console.log("🌌 Aurora Tracker: Online (Cron Scheduled)");
 
-        // 1. High Activity Alert System (Checks every 30 minutes)
-        setInterval(async () => {
+        // 1. High Activity Alert System
+        // Schedule: Every 30 minutes (e.g. 12:00, 12:30, 1:00...)
+        cron.schedule('*/30 * * * *', async () => {
+            console.log("🔍 Checking Aurora Alert Status...");
             await checkAuroraAlert(client, config, dataFile);
-        }, 30 * 60 * 1000);
+        });
 
-        // 2. Scheduled 3-Hour Report (Checks every 3 hours)
-        setInterval(async () => {
+        // 2. Scheduled 3-Hour Report
+        // Schedule: At minute 0 past every 3rd hour (00:00, 03:00, 06:00, etc.)
+        cron.schedule('0 */3 * * *', async () => {
+            console.log("📨 Sending Scheduled 3-Hour Report...");
             await sendScheduledReport(client);
-        }, 3 * 60 * 60 * 1000);
+        });
 
-        // Run the scheduled report 10 seconds after startup
+        // Run the scheduled report 10 seconds after startup (So you get one immediately on boot)
         setTimeout(async () => {
             await sendScheduledReport(client);
         }, 10000);
@@ -73,7 +78,6 @@ async function sendScheduledReport(client) {
         const futureValues = futureKpData.map(d => parseFloat(d[1]));
 
         // C. Combine Labels (and handle X-Ray overlay scaling)
-        // Note: X-Ray is on a different scale, we will just show Kp trends clearly
         const allLabels = [...pastLabels, ...futureLabels];
         const allPastData = [...pastValues, ...Array(futureValues.length).fill(null)]; // Pad with nulls
         const allFutureData = [...Array(pastValues.length).fill(null), ...futureValues]; // Pad with nulls
@@ -119,7 +123,26 @@ async function sendScheduledReport(client) {
             }
         };
 
-        const graphUrl = `https://quickchart.io/chart?c=${encodeURIComponent(JSON.stringify(chartConfig))}&w=500&h=300&bkg=white`;
+        // Get Short URL via POST
+        let graphUrl = "";
+        try {
+            const qcRes = await fetch('https://quickchart.io/chart/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    backgroundColor: 'white',
+                    width: 500,
+                    height: 300,
+                    format: 'png',
+                    chart: chartConfig
+                })
+            });
+            const qcJson = await qcRes.json();
+            if (qcJson.url) graphUrl = qcJson.url;
+        } catch (qcErr) {
+            console.error("QuickChart Error:", qcErr);
+        }
+
         const mapUrl = `https://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg?t=${Date.now()}`;
 
         // --- 4. Format Output ---
