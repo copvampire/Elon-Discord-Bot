@@ -1,7 +1,7 @@
 // This will check if the node version you are running is the required
 // Node version, if it isn't it will throw the following error to inform
 // you.
-if (Number(process.version.slice(1).split(".")[0]) < 16) throw new Error("Node 16.x or higher is required. Update Node on your system.");
+if (Number(process.version.slice(1).split(".")[0]) < 16) throw new Error("Node 16.9.0 or higher is required. Update Node on your system.");
 require("dotenv").config();
 
 // Load up the discord.js library
@@ -110,6 +110,12 @@ const init = async () => {
     const command = require(`./slash/${file}`);
     const commandName = file.split(".")[0];
     logger.log(`Loading Slash command: ${commandName}. 👌`, "log");
+
+    // Check if commandData exists before trying to read it
+    if (!command.commandData) {
+        logger.log(`Skipping Slash Command ${file}: Missing exports.commandData!`, "warn");
+        continue;
+    }
     
     // Now set the name of the command with it's properties.
     client.container.slashcmds.set(command.commandData.name, command);

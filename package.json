@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=16.9.0"
   },
   "repository": {
     "type": "git",
@@ -23,25 +23,24 @@
   },
   "homepage": "https://github.com/AnIdiotsGuide/guidebot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.2.0",
-    "@sapphire/time-utilities": "^1.3.8",
+    "@sapphire/time-utilities": "^1.7.0",
     "cloudflare-dynamic-dns": "^1.0.2",
-    "colorette": "^1.3.0",
-    "discord.js": "^13.0.1",
-    "dotenv": "^10.0.0",
-    "enmap": "^5.8.5",
-    "node-fetch": "^2.6.7",
-    "node-schedule": "^2.1.0"
+    "colorette": "^2.0.20",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.3.1",
+    "enmap": "^5.9.0",
+    "node-fetch": "^2.7.0",
+    "node-schedule": "^2.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^6.1.1"
   },
   "overrides": {
-    "better-sqlite3": "^12.2.0"
+    "better-sqlite3": "^11.5.0"
   }
 }

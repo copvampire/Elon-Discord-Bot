@@ -1,5 +1,4 @@
-const { version } = require("discord.js");
-const { codeBlock } = require("@discordjs/builders");
+const { version, codeBlock } = require("discord.js");
 const { DurationFormatter } = require("@sapphire/time-utilities");
 const durationFormatter = new DurationFormatter();
 
@@ -13,7 +12,8 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
   • Channels   :: ${client.channels.cache.size.toLocaleString()}
   • Discord.js :: v${version}
   • Node       :: ${process.version}`);
-  message.channel.send(stats);
+  // v14 FIX: Object syntax for send
+  message.channel.send({ content: stats });
 };
 
 exports.conf = {

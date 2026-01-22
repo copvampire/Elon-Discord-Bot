@@ -1,4 +1,4 @@
-const { Intents } = require("discord.js");
+const { GatewayIntentBits, Partials, IntentsBitField } = require("discord.js");
 
 const config = {
     // Bot Admins, level 9 by default. Array of user ID strings.
@@ -10,10 +10,15 @@ const config = {
     // Intents the bot needs.
     // By default GuideBot needs Guilds, Guild Messages and Direct Messages to work.
     // For join messages to work you need Guild Members, which is privileged and requires extra setup.
-    // For more info about intents see the README.
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES],
+    // Note: MessageContent is now privileged and REQUIRED for prefix commands to work.
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages, 
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.MessageContent 
+    ],
     // Partials your bot may need should go here, CHANNEL is required for DM's
-    partials: ["CHANNEL"],
+    partials: [Partials.Channel],
 
     // Default per-server settings. These settings are entered in a database on first load, 
     // And are then completely ignored from this file. To modify default settings, use the `conf` command.

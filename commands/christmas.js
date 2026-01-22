@@ -1,12 +1,13 @@
 /*
 The CHRISTMAS command is used to display the countdown to christmas
 */
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 exports.run = (client, message, args, level) => {
 
   var now = new Date();
-  var countDownDate = new Date( "25 Dec 20 00:00:00 GMT" ).setYear(now.getFullYear());
+  // v14/Standard Fix: Use setFullYear instead of setYear
+  var countDownDate = new Date( "25 Dec 20 00:00:00 GMT" ).setFullYear(now.getFullYear());
 
   var GMT = new Date( new Date().toLocaleString( "en-US", {
     timeZone: "Europe/London"
@@ -75,67 +76,67 @@ exports.run = (client, message, args, level) => {
   var MSTseconds = Math.floor( (MSTdistance % (1000 * 60)) / 1000 );
   var MSTmilliseconds = Math.floor( MSTdistance % (1000 * 60 / 1000) );
 
-  var CountdownMessage = new MessageEmbed()
-      .setColor("RANDOM")
+  var CountdownMessage = new EmbedBuilder()
+      .setColor("Random")
       .setTitle( ':snowflake: :snowflake: Christmas countdown!! :snowflake: :snowflake:' )
       .setDescription( ':snowflake: :snowflake: :snowflake: :snowflake: :snowflake::snowflake::snowflake::snowflake: :snowflake: :snowflake: :snowflake: :snowflake:' )
-      .addField( ':christmas_tree: Europe', 'Timezones for Europe' )
-      .addField( 'CET',
-          "There are " +
-          CETdays + " days, " +
-          CEThours + " hours, " +
-          CETminutes + " minutes, " +
-          CETseconds + " seconds, " +
-          CETmilliseconds + " milliseconds, " +
-          " until christmas in the CET timezone", true )
-      .addField( 'GMT',
-          "There are " +
-          GMTdays + " days, " +
-          GMThours + " hours, " +
-          GMTminutes + " minutes, " +
-          GMTseconds + " seconds, " +
-          GMTmilliseconds + " milliseconds, " +
-          " until christmas in the GMT timezone", true )
-      .addField( ':christmas_tree: America', 'Timezones for the Americas' )
-      .addField( 'AST',
-          "There are " +
-          ASTdays + " days, " +
-          ASThours + " hours, " +
-          ASTminutes + " minutes, " +
-          ASTseconds + " seconds, " +
-          ASTmilliseconds + " milliseconds, " +
-          " until christmas in the AST timezone", true )
-      .addField( 'EST',
-          "There are " +
-          ESTdays + " days, " +
-          ESThours + " hours, " +
-          ESTminutes + " minutes, " +
-          ESTseconds + " seconds, " +
-          ESTmilliseconds + " milliseconds, " +
-          " until christmas in the EST timezone", true )
-      .addField( 'MST',
-          "There are " +
-          MSTdays + " days, " +
-          MSThours + " hours, " +
-          MSTminutes + " minutes, " +
-          MSTseconds + " seconds, " +
-          MSTmilliseconds + " milliseconds, " +
-          " until christmas in the MST timezone", true )
-      .addField( 'PST',
-          "There are " +
-          PSTdays + " days, " +
-          PSThours + " hours, " +
-          PSTminutes + " minutes, " +
-          PSTseconds + " seconds, " +
-          PSTmilliseconds + " milliseconds, " +
-          " until christmas in the PST timezone", true )
+      .addFields(
+          { name: ':christmas_tree: Europe', value: 'Timezones for Europe' },
+          { name: 'CET', value: 
+             "There are " +
+             CETdays + " days, " +
+             CEThours + " hours, " +
+             CETminutes + " minutes, " +
+             CETseconds + " seconds, " +
+             CETmilliseconds + " milliseconds, " +
+             " until christmas in the CET timezone", inline: true },
+          { name: 'GMT', value: 
+             "There are " +
+             GMTdays + " days, " +
+             GMThours + " hours, " +
+             GMTminutes + " minutes, " +
+             GMTseconds + " seconds, " +
+             GMTmilliseconds + " milliseconds, " +
+             " until christmas in the GMT timezone", inline: true },
+          { name: ':christmas_tree: America', value: 'Timezones for the Americas' },
+          { name: 'AST', value: 
+             "There are " +
+             ASTdays + " days, " +
+             ASThours + " hours, " +
+             ASTminutes + " minutes, " +
+             ASTseconds + " seconds, " +
+             ASTmilliseconds + " milliseconds, " +
+             " until christmas in the AST timezone", inline: true },
+          { name: 'EST', value: 
+             "There are " +
+             ESTdays + " days, " +
+             ESThours + " hours, " +
+             ESTminutes + " minutes, " +
+             ESTseconds + " seconds, " +
+             ESTmilliseconds + " milliseconds, " +
+             " until christmas in the EST timezone", inline: true },
+          { name: 'MST', value: 
+             "There are " +
+             MSTdays + " days, " +
+             MSThours + " hours, " +
+             MSTminutes + " minutes, " +
+             MSTseconds + " seconds, " +
+             MSTmilliseconds + " milliseconds, " +
+             " until christmas in the MST timezone", inline: true },
+          { name: 'PST', value: 
+             "There are " +
+             PSTdays + " days, " +
+             PSThours + " hours, " +
+             PSTminutes + " minutes, " +
+             PSTseconds + " seconds, " +
+             PSTmilliseconds + " milliseconds, " +
+             " until christmas in the PST timezone", inline: true }
+      )
       .setTimestamp()
-      .setFooter( 'Completed on' );
+      .setFooter({ text: 'Completed on' });
 
   message.channel.send({ embeds: [CountdownMessage] });
-
-  
-  };
+};
 
 exports.conf = {
   enabled: true,

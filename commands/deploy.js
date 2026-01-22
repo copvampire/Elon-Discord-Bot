@@ -7,12 +7,18 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   // Give the user a notification the commands are deploying.
   await message.channel.send("Deploying commands!");
 
-  // We'll use set but please keep in mind that `set` is overkill for a singular command.
-  // Set the guild commands like 
-  await client.guilds.cache.get(message.guild.id)?.commands.set(guildCmds.map(c => c.commandData));
+  // Deploy Guild Commands
+  // We map the commands to their JSON format required by the API
+  const guildCmdData = guildCmds.map(c => c.commandData);
+  if (message.guild && guildCmdData.length > 0) {
+      await message.guild.commands.set(guildCmdData);
+  }
 
-  // Then set the global commands like 
-  await client.application?.commands.set(globalCmds.map(c => c.commandData)).catch(e => console.log(e));
+  // Deploy Global Commands
+  const globalCmdData = globalCmds.map(c => c.commandData);
+  if (client.application && globalCmdData.length > 0) {
+      await client.application.commands.set(globalCmdData).catch(e => console.log(e));
+  }
 
   // Reply to the user that the commands have been deployed.
   await message.channel.send("All commands deployed!");
